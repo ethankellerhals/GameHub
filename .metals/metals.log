@@ -64,3 +64,54 @@ WARNING: Unmatched cancel notification for request id 1018
 Apr 06, 2023 2:38:20 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
 WARNING: Unmatched cancel notification for request id 1259
 2023.04.06 14:43:39 WARN  no build target for: /Users/iiicemane/Desktop/OOAD/Final/GameHub/Games.java
+2023.04.06 14:58:14 WARN  no build target for: /Users/iiicemane/Desktop/OOAD/Final/GameHub/Gamehub.java
+2023.04.06 14:59:10 WARN  no build target for: /Users/iiicemane/Desktop/OOAD/Final/GameHub/Gamehub.java
+2023.04.06 20:30:36 INFO  Shutting down server
+2023.04.06 20:30:36 INFO  shutting down Metals
+2023.04.06 20:30:36 INFO  Exiting server
+2023.04.07 11:41:13 INFO  Started: Metals version 0.11.11 in workspace '/Users/iiicemane/Desktop/OOAD/Final/GameHub' for client Visual Studio Code 1.77.1.
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/Users/iiicemane/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/outr/scribe-slf4j_2.13/3.11.0/scribe-slf4j_2.13-3.11.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2023.04.07 11:41:15 INFO  time: initialize in 1.45s
+2023.04.07 11:41:20 WARN  Build server is not auto-connectable.
+2023.04.07 11:41:20 WARN  no build tool detected in workspace '/Users/iiicemane/Desktop/OOAD/Final/GameHub'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2023.04.07 11:41:20 WARN  no build target for: /Users/iiicemane/Desktop/OOAD/Final/GameHub/Gamehub.java
+2023.04.07 11:41:20 WARN  no build target for: /Users/iiicemane/Desktop/OOAD/Final/GameHub/Games.java
+2023.04.07 11:41:23 INFO  time: code lens generation in 2.57s
+2023.04.07 11:41:24 INFO  time: code lens generation in 4.09s
+Apr 07, 2023 11:41:35 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+2023.04.07 11:42:09 WARN  no build target for: /Users/iiicemane/Desktop/OOAD/Final/GameHub/Users.java
+2023.04.07 11:44:21 WARN  no build target for: /Users/iiicemane/Desktop/OOAD/Final/GameHub/Users.java
+2023.04.08 00:03:47 INFO  Shutting down server
+2023.04.08 00:03:47 INFO  shutting down Metals
+2023.04.08 00:03:47 INFO  Exiting server
+2023.04.09 20:22:59 INFO  Started: Metals version 0.11.11 in workspace '/Users/iiicemane/Desktop/OOAD/Final/GameHub' for client Visual Studio Code 1.77.1.
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/Users/iiicemane/Library/Caches/Coursier/v1/https/repo1.maven.org/maven2/com/outr/scribe-slf4j_2.13/3.11.0/scribe-slf4j_2.13-3.11.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2023.04.09 20:23:01 INFO  time: initialize in 2.7s
+2023.04.09 20:23:09 WARN  Build server is not auto-connectable.
+2023.04.09 20:23:09 WARN  no build tool detected in workspace '/Users/iiicemane/Desktop/OOAD/Final/GameHub'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2023.04.09 20:23:09 WARN  no build target for: /Users/iiicemane/Desktop/OOAD/Final/GameHub/Games.java
+2023.04.09 20:23:09 WARN  no build target for: /Users/iiicemane/Desktop/OOAD/Final/GameHub/Users.java
+2023.04.09 20:23:09 WARN  no build target for: /Users/iiicemane/Desktop/OOAD/Final/GameHub/Gamehub.java
+2023.04.09 20:23:14 INFO  time: code lens generation in 5.8s
+2023.04.09 20:23:22 INFO  time: code lens generation in 2.11s
+Apr 10, 2023 4:14:29 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Apr 10, 2023 4:19:45 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1315
+2023.04.10 16:20:49 WARN  no build target for: /Users/iiicemane/Desktop/OOAD/Final/GameHub/Users.java
+2023.04.10 16:22:10 WARN  no build target for: /Users/iiicemane/Desktop/OOAD/Final/GameHub/Users.java
+Apr 10, 2023 4:22:48 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1900
+2023.04.10 16:22:53 WARN  no build target for: /Users/iiicemane/Desktop/OOAD/Final/GameHub/Users.java
+2023.04.10 16:22:53 WARN  no build target for: /Users/iiicemane/Desktop/OOAD/Final/GameHub/Users.java
