@@ -98,4 +98,38 @@
         tools:layout_editor_absoluteX="251dp"
         tools:layout_editor_absoluteY="298dp" />
 
+    <LinearLayout
+        android:layout_width="417dp"
+        android:layout_height="308dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="21dp"
+        tools:layout_editor_absoluteY="451dp">
+
+        <Button
+            android:id="@+id/customizeButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Customize" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="19dp" />
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="26dp" />
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
