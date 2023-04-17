@@ -223,11 +223,12 @@
         app:layout_constraintVertical_bias="0.527" />
 
     <ImageButton
-        android:id="@+id/imageView5"
+        android:id="@+id/profileButton"
         android:layout_width="94dp"
         android:layout_height="75dp"
         android:layout_marginTop="9dp"
         android:layout_marginBottom="15dp"
+        android:onClick="viewProfile"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.949"
