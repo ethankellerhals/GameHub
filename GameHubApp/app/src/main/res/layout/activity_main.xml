@@ -29,7 +29,7 @@
         android:layout_marginTop="73dp"
         android:layout_marginBottom="610dp"
         android:backgroundTint="#ec4b4f"
-        android:text="Button"
+        android:text="Games"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button5"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +42,7 @@
         android:layout_marginTop="73dp"
         android:layout_marginBottom="610dp"
         android:backgroundTint="#79d375"
-        android:text="Button"
+        android:text="Genre"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button6"
         app:layout_constraintStart_toEndOf="@+id/button7"
@@ -55,7 +55,7 @@
         android:layout_marginTop="73dp"
         android:layout_marginBottom="610dp"
         android:backgroundTint="#39abff"
-        android:text="Button"
+        android:text="Friends"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button8"
         app:layout_constraintStart_toEndOf="@+id/button5"
@@ -69,7 +69,7 @@
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="610dp"
         android:backgroundTint="#f8d356"
-        android:text="Button"
+        android:text="Shelf"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button6"
@@ -236,6 +236,7 @@
         app:layout_constraintTop_toTopOf="@+id/view2"
         app:layout_constraintVertical_bias="0.8"
         android:contentDescription="Profile"
+
         android:background="@drawable/profile"/>
 
 </android.support.constraint.ConstraintLayout>
