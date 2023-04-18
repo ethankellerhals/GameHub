@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/gameButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -31,12 +31,12 @@
         android:backgroundTint="#ec4b4f"
         android:text="Games"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintEnd_toStartOf="@+id/genreButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/genreButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="73dp"
@@ -44,12 +44,12 @@
         android:backgroundTint="#79d375"
         android:text="Genre"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
-        app:layout_constraintStart_toEndOf="@+id/button7"
+        app:layout_constraintEnd_toStartOf="@+id/friendsButton"
+        app:layout_constraintStart_toEndOf="@+id/gameButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/friendsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="73dp"
@@ -57,12 +57,12 @@
         android:backgroundTint="#39abff"
         android:text="Friends"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button8"
-        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintEnd_toStartOf="@+id/shelfButton"
+        app:layout_constraintStart_toEndOf="@+id/genreButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/shelfButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="73dp"
@@ -72,7 +72,7 @@
         android:text="Shelf"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button6"
+        app:layout_constraintStart_toEndOf="@+id/friendsButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -109,7 +109,7 @@
         app:layout_constraintVertical_bias="0.972" />
 
     <View
-        android:id="@+id/view5"
+        android:id="@+id/popularVIew"
         android:layout_width="338dp"
         android:layout_height="110dp"
         android:layout_marginStart="30dp"
@@ -122,7 +122,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <View
-        android:id="@+id/view6"
+        android:id="@+id/recommendView"
         android:layout_width="338dp"
         android:layout_height="110dp"
         android:layout_marginStart="30dp"
@@ -136,7 +136,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <View
-        android:id="@+id/view7"
+        android:id="@+id/historyView"
         android:layout_width="338dp"
         android:layout_height="110dp"
         android:layout_marginStart="30dp"
@@ -147,7 +147,7 @@
         app:layout_constraintBottom_toTopOf="@+id/view4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view6" />
+        app:layout_constraintTop_toBottomOf="@+id/recommendView" />
 
     <TextView
         android:id="@+id/textView2"
@@ -158,11 +158,11 @@
         android:layout_marginEnd="258dp"
         android:layout_marginBottom="47dp"
         android:text="History"
-        app:layout_constraintBottom_toBottomOf="@+id/view7"
-        app:layout_constraintEnd_toEndOf="@+id/view7"
+        app:layout_constraintBottom_toBottomOf="@+id/historyView"
+        app:layout_constraintEnd_toEndOf="@+id/historyView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/view7"
-        app:layout_constraintTop_toTopOf="@+id/view7"
+        app:layout_constraintStart_toStartOf="@+id/historyView"
+        app:layout_constraintTop_toTopOf="@+id/historyView"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -174,10 +174,10 @@
         android:layout_marginEnd="261dp"
         android:layout_marginBottom="45dp"
         android:text="Popular"
-        app:layout_constraintBottom_toBottomOf="@+id/view5"
-        app:layout_constraintEnd_toEndOf="@+id/view5"
-        app:layout_constraintStart_toStartOf="@+id/view5"
-        app:layout_constraintTop_toTopOf="@+id/view5" />
+        app:layout_constraintBottom_toBottomOf="@+id/popularVIew"
+        app:layout_constraintEnd_toEndOf="@+id/popularVIew"
+        app:layout_constraintStart_toStartOf="@+id/popularVIew"
+        app:layout_constraintTop_toTopOf="@+id/popularVIew" />
 
     <TextView
         android:id="@+id/textView5"
@@ -188,15 +188,15 @@
         android:layout_marginEnd="263dp"
         android:layout_marginBottom="45dp"
         android:text="Recommendation"
-        app:layout_constraintBottom_toBottomOf="@+id/view6"
-        app:layout_constraintEnd_toEndOf="@+id/view6"
+        app:layout_constraintBottom_toBottomOf="@+id/recommendView"
+        app:layout_constraintEnd_toEndOf="@+id/recommendView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/view6"
-        app:layout_constraintTop_toTopOf="@+id/view6"
+        app:layout_constraintStart_toStartOf="@+id/recommendView"
+        app:layout_constraintTop_toTopOf="@+id/recommendView"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/addButton"
         android:layout_width="127dp"
         android:layout_height="133dp"
         android:background="@drawable/green_log"
@@ -208,7 +208,7 @@
         app:layout_constraintVertical_bias="0.666" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/homeButton"
         android:layout_width="51dp"
         android:layout_height="48dp"
         android:layout_marginTop="1dp"

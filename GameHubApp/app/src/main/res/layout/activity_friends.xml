@@ -82,7 +82,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/gameButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -91,12 +91,12 @@
         android:backgroundTint="@color/white"
         android:text="Games"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button5"
+        app:layout_constraintEnd_toStartOf="@+id/genreButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/genreButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="73dp"
@@ -104,12 +104,12 @@
         android:backgroundTint="@color/white"
         android:text="Genre"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
-        app:layout_constraintStart_toEndOf="@+id/button7"
+        app:layout_constraintEnd_toStartOf="@+id/friendsButton"
+        app:layout_constraintStart_toEndOf="@+id/gameButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/friendsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="73dp"
@@ -117,12 +117,12 @@
         android:backgroundTint="#39abff"
         android:text="Friends"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button8"
-        app:layout_constraintStart_toEndOf="@+id/button5"
+        app:layout_constraintEnd_toStartOf="@+id/shelfButton"
+        app:layout_constraintStart_toEndOf="@+id/genreButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/shelfButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="73dp"
@@ -132,7 +132,7 @@
         android:text="Shelf"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button6"
+        app:layout_constraintStart_toEndOf="@+id/friendsButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
@@ -160,7 +160,7 @@
         app:layout_constraintVertical_bias="0.972" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/addButton"
         android:layout_width="127dp"
         android:layout_height="133dp"
         android:background="@drawable/green_log"
@@ -172,7 +172,7 @@
         app:layout_constraintVertical_bias="0.666" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/homeButton"
         android:layout_width="51dp"
         android:layout_height="48dp"
         android:layout_marginTop="1dp"
@@ -235,7 +235,7 @@
 
 
     <View
-        android:id="@+id/view7"
+        android:id="@+id/historyView"
         android:layout_width="335dp"
         android:layout_height="1dp"
         android:layout_marginStart="38dp"
@@ -277,7 +277,7 @@
         app:layout_constraintBottom_toTopOf="@+id/button23"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view7" />
+        app:layout_constraintTop_toBottomOf="@+id/historyView" />
 
     <View
         android:id="@+id/view111"
