@@ -9,24 +9,22 @@ import android.provider.MediaStore.Images;
 import android.net.Uri;
 import android.graphics.Bitmap;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class EditProfileActivity extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
     private ImageView profilePictureImageView;
+    TextView profilePic, editUsername;
+    Uri imageUri;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
-        //profilePictureImageView = findViewById(R.id.profilePicture);
-//        Button saveChangesBtn = findViewById(R.id.saveChangesButton);
-//        saveChangesBtn.setOnClickListener(new View.OnClickListener() {
-//           @Override
-//           public void onClick(View v) {
-//               finish();
-//           }
-//        });
+        profilePic = findViewById(R.id.profilePicture);
+
     }
 
     public void selectNewProfilePicture(View view) {
@@ -39,8 +37,8 @@ public class EditProfileActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            Uri imageUri = data.getData();
-
+            imageUri = data.getData();
+            uploadProfileCoverPhoto
             try {
                 Bitmap bitmap = Images.Media.getBitmap(getContentResolver(), imageUri);
                 ImageView profilePic = findViewById(R.id.profilePicture);
@@ -49,5 +47,16 @@ public class EditProfileActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+    }
+
+    private void pickFromGallery() {
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK);
+        galleryIntent.setType("image/*");
+        startActivityForResult(galleryIntent, IMAGEPICK_GALLERY_REQUEST);
+
+    }
+
+    private void uploadProfileCoverPhoto(final Uri uri) {
+        String filePath =
     }
 }
