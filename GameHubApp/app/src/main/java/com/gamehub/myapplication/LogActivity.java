@@ -1,28 +1,25 @@
 package com.gamehub.myapplication;
 
-import android.media.Image;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.content.Intent;
 
-public class MainActivity extends AppCompatActivity {
+public class LogActivity extends AppCompatActivity {
 
     ImageButton profileBtn;
-    ImageButton logBtn;
     ImageButton homeBtn;
     Button shelfBtn;
     Button gamesBtn;
     Button genreBtn;
     Button friendBtn;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_log);
 
         // after clicking the profile button, take to profile page
         profileBtn = (ImageButton) findViewById(R.id.profileButton);
@@ -34,63 +31,55 @@ public class MainActivity extends AppCompatActivity {
         genreBtn = findViewById(R.id.genreButton);
         // friend button, take to friend page
         friendBtn = findViewById(R.id.friendsButton);
-        // log button, take to log page
-        logBtn = (ImageButton) findViewById(R.id.addButton);
         // home button, take to home page
         homeBtn = (ImageButton) findViewById(R.id.homeButton);
-        logBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentLoadNewAdd = new Intent(MainActivity.this, LogActivity.class);
-                MainActivity.this.startActivity(intentLoadNewAdd);
-            }
-        });
+
         profileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentLoadNewActivity = new Intent(MainActivity.this, ProfileActivity.class);
-                MainActivity.this.startActivity(intentLoadNewActivity);
+                Intent intentLoadNewActivity = new Intent(LogActivity.this, ProfileActivity.class);
+                LogActivity.this.startActivity(intentLoadNewActivity);
             }
         });
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentLoadNewHome = new Intent(MainActivity.this, MainActivity.class);
-                MainActivity.this.startActivity(intentLoadNewHome);
+                Intent intentLoadNewHome = new Intent(LogActivity.this, MainActivity.class);
+                LogActivity.this.startActivity(intentLoadNewHome);
             }
         });
         shelfBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intendLoadShelfs = new Intent(MainActivity.this, ShelfActivity.class);
-                MainActivity.this.startActivity(intendLoadShelfs);
+                Intent intendLoadShelfs = new Intent(LogActivity.this, ShelfActivity.class);
+                LogActivity.this.startActivity(intendLoadShelfs);
 
             }
         });
         gamesBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intendLoadGames = new Intent(MainActivity.this, GamesActivity.class);
-                MainActivity.this.startActivity(intendLoadGames);
+                Intent intendLoadGames = new Intent(LogActivity.this, GamesActivity.class);
+                LogActivity.this.startActivity(intendLoadGames);
 
             }
         });
         genreBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intendLoadGenre = new Intent(MainActivity.this, GenreActivity.class);
-                MainActivity.this.startActivity(intendLoadGenre);
+                Intent intendLoadGenre = new Intent(LogActivity.this, GenreActivity.class);
+                LogActivity.this.startActivity(intendLoadGenre);
 
             }
         });
         friendBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intendLoadFriend = new Intent(MainActivity.this, FriendsActivity.class);
-                MainActivity.this.startActivity(intendLoadFriend);
+                Intent intendLoadFriend = new Intent(LogActivity.this, FriendsActivity.class);
+                LogActivity.this.startActivity(intendLoadFriend);
 
             }
         });
-
     }
+
 }
