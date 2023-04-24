@@ -31,6 +31,19 @@ public class MainActivity extends AppCompatActivity {
         this.userList = userList;
         this.tempGameList = setgame(tempGameList, "/Users/iiicemane/Desktop/OOAD/Final/Gamehub/GameHub/GameHubApp/gameDataset");
     }
+    public void setUserList(List<users> userList){
+        this.userList = userList;
+    }
+    public void setGamesList(List<games> gamesList){
+        this.gamesList = gamesList;
+    }
+    public List<users> getUserList(){
+        return this.userList;
+    }
+    public List<games> getGamesList(){
+        return this.gamesList;
+    }
+
     public List<String> setgame(List<String> currList, String filesname){
         try {
             File file = new File(filesname);
@@ -58,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         return newGame;
     }
     public users createUser(){
-        users newUser = new users(newUser.getUserID(0),newUser.setUserName("Jonnn"), newUser.setFirstName("Jon"), newUser.setUserEmail("goins@yahoo.com"), newUser.setCurrentPlay(new ArrayList<>()), newUser.setHavePlayed(new ArrayList<>()), newUser.setMyFriends(new ArrayList<>()));
+        users newUser = new users(newUser.setUserID(0) , newUser.setUserName("Jonnn"), newUser.setFirstName("Jon"), newUser.setUserEmail("goins@yahoo.com"), newUser.setCurrentPlay(new ArrayList<>()), newUser.setHavePlayed(new ArrayList<>()), newUser.setMyFriends(new ArrayList<>()));
         return newUser;
     }
     @Override
