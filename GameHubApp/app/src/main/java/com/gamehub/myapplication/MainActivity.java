@@ -7,7 +7,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.content.Intent;
-
+import java.util.Random;
+import java.util.ArrayList;
+import java.util.*;
+import java.util.List;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 public class MainActivity extends AppCompatActivity {
 
     ImageButton profileBtn;
@@ -17,9 +23,44 @@ public class MainActivity extends AppCompatActivity {
     Button gamesBtn;
     Button genreBtn;
     Button friendBtn;
+    private List<users> userList = new ArrayList<>();
+    private List<games> gamesList = new ArrayList<>();
+    private List<String> tempGameList = new ArrayList<>();
 
+    public MainActivity(){
+        this.userList = userList;
+        this.tempGameList = setgame(tempGameList, "/Users/iiicemane/Desktop/OOAD/Final/Gamehub/GameHub/GameHubApp/gameDataset");
+    }
+    public List<String> setgame(List<String> currList, String filesname){
+        try {
+            File file = new File(filesname);
+            Scanner scanner = new Scanner(file);
 
+            while (scanner.hasNextLine()) {
+                String line1 = scanner.nextLine();
+                currList.add(line1);
+            }
 
+            scanner.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return currList;
+    }
+    public games createGame(){
+        Random random = new Random();// https://www.baeldung.com/java-random-list-element#:~:text=Picking%20a%20Random%20Item%2FItems,that%20exceeds%20your%20List%27s%20size |AND| https://www.geeksforgeeks.org/arrays-aslist-method-in-java-with-examples/
+        int index = random.nextInt(tempGameList.size());
+        // split list. Should be in order (car, performance, pickup) used https://stackoverflow.com/questions/7899525/how-to-split-a-string-by-space
+        String[] splitstr = this.tempGameList.get(index).split("\\s+"); // ID, title, publisher,rating
+        games newGame = new games(0.0, splitstr[1], splitstr[5], 0);
+        //CarNames.remove(index);
+        return newGame;
+    }
+    public users createUser(){
+        users newUser = new users(newUser.getUserID(0),newUser.setUserName("Jonnn"), newUser.setFirstName("Jon"), newUser.setUserEmail("goins@yahoo.com"), newUser.setCurrentPlay(new ArrayList<>()), newUser.setHavePlayed(new ArrayList<>()), newUser.setMyFriends(new ArrayList<>()));
+        return newUser;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
