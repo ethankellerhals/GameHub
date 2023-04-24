@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.content.Intent;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.*;
@@ -30,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     public MainActivity(){
         this.userList = userList;
         this.tempGameList = setgame(tempGameList, "/Users/iiicemane/Desktop/OOAD/Final/Gamehub/GameHub/GameHubApp/gameDataset");
+        this.gamesList = createGame();
     }
     public void setUserList(List<users> userList){
         this.userList = userList;
@@ -43,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     public List<games> getGamesList(){
         return this.gamesList;
     }
+
 
     public List<String> setgame(List<String> currList, String filesname){
         try {
@@ -61,17 +67,23 @@ public class MainActivity extends AppCompatActivity {
         }
         return currList;
     }
-    public games createGame(){
+    public List<games> createGame(){
         Random random = new Random();// https://www.baeldung.com/java-random-list-element#:~:text=Picking%20a%20Random%20Item%2FItems,that%20exceeds%20your%20List%27s%20size |AND| https://www.geeksforgeeks.org/arrays-aslist-method-in-java-with-examples/
         int index = random.nextInt(tempGameList.size());
+        List<games> temp = new ArrayList<>();
+        int dex = 0;
+        String[] splitstr;
         // split list. Should be in order (car, performance, pickup) used https://stackoverflow.com/questions/7899525/how-to-split-a-string-by-space
-        String[] splitstr = this.tempGameList.get(index).split("\\s+"); // ID, title, publisher,rating
-        games newGame = new games(0.0, splitstr[1], splitstr[5], 0);
-        //CarNames.remove(index);
-        return newGame;
+        while(dex <= tempGameList.size()){
+            splitstr = this.tempGameList.get(index).split("\\s+"); // ID, title, publisher,rating
+            games newGame = new games(0.0, splitstr[1], splitstr[5], 0);
+            temp.add(newGame);
+        }
+        return temp;
+
     }
     public users createUser(){
-        users newUser = new users(newUser.setUserID(0) , newUser.setUserName("Jonnn"), newUser.setFirstName("Jon"), newUser.setUserEmail("goins@yahoo.com"), newUser.setCurrentPlay(new ArrayList<>()), newUser.setHavePlayed(new ArrayList<>()), newUser.setMyFriends(new ArrayList<>()));
+        users newUser = new users(0 , "Jonnn", "Jon", "goins@yahoo.com", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         return newUser;
     }
     @Override
@@ -94,6 +106,10 @@ public class MainActivity extends AppCompatActivity {
         logBtn = (ImageButton) findViewById(R.id.addButton);
         // home button, take to home page
         homeBtn = (ImageButton) findViewById(R.id.homeButton);
+        setgame(tempGameList,"/Users/iiicemane/Desktop/OOAD/Final/Gamehub/GameHub/GameHubApp/gameDataset" );
+        createGame();
+
+
         logBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -128,9 +144,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intendLoadGames = new Intent(MainActivity.this, GamesActivity.class);
                 MainActivity.this.startActivity(intendLoadGames);
+//            This is for the game library page yea?
+                TableLayout tb1=findViewById(R.id.allGamesTable);
+                TableRow r1 = new TableRow(MainActivity.this);
+                r1.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT));
 
+                TextView v1 = new TextView(MainActivity.this);
+                v1.setText("Yooo");
+                r1.addView(v1);
             }
         });
+//        public void create_Table(){
+//            TableLayout tb1=findViewById(R.id.allGamesTable);
+//
+//        }
         genreBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){

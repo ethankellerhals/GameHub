@@ -78,99 +78,6 @@
 
 
     <View
-        android:id="@+id/Popular_Recents_Line"
-        android:layout_width="335dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="38dp"
-
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="122dp"
-        android:background="#ec4b4f"
-        app:layout_constraintBottom_toTopOf="@+id/Most_popular"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Popular_Recents" />
-
-
-    <TextView
-        android:id="@+id/Popular_Recents"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="271dp"
-        android:text="Popular Recents"
-        android:textColor="#ec4b4f"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <View
-        android:id="@+id/Most_popular_line"
-        android:layout_width="335dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="38dp"
-
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="121dp"
-        android:background="#ec4b4f"
-        app:layout_constraintBottom_toTopOf="@+id/Developer_choice"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Most_popular" />
-
-    <TextView
-        android:id="@+id/Most_popular"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="310dp"
-        android:layout_marginEnd="289dp"
-        android:layout_marginBottom="402dp"
-        android:text="Most Popular"
-
-        android:textColor="#ec4b4f"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <View
-        android:id="@+id/Developer_choice_line"
-        android:layout_width="335dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="38dp"
-
-        android:layout_marginEnd="38dp"
-        android:layout_marginBottom="79dp"
-        android:background="#ec4b4f"
-        app:layout_constraintBottom_toTopOf="@+id/view4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Developer_choice" />
-
-    <TextView
-        android:id="@+id/Developer_choice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="451dp"
-        android:layout_marginEnd="256dp"
-        android:layout_marginBottom="261dp"
-        android:text="Developers Choice"
-        android:textColor="#ec4b4f"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
         android:id="@+id/view2"
         android:layout_width="411dp"
         android:layout_height="104dp"
@@ -236,6 +143,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view2"
         app:layout_constraintVertical_bias="0.8" />
+
+    <TableLayout
+        android:id="@+id/allGamesTable"
+        android:layout_width="409dp"
+        android:layout_height="419dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="130dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <TextView
+            android:id="@+id/testID"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="testgggg"
+            />
+        <TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/testID2"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="testzzzzzg"
+            />
+        </TableRow>
+
+
+    </TableLayout>
 
 
 </android.support.constraint.ConstraintLayout>
