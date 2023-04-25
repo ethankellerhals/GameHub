@@ -27,8 +27,8 @@ public class ProfileActivity extends AppCompatActivity {
         editProfileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentLoadNewActivity = new Intent(ProfileActivity.this, EditProfileActivity.class);
-                ProfileActivity.this.startActivity(intentLoadNewActivity);
+                //Intent intentLoadNewActivity = new Intent(ProfileActivity.this, EditProfileActivity.class);
+               // ProfileActivity.this.startActivity(intentLoadNewActivity);
 
 //                LayoutInflater inflater = getLayoutInflater();
 //
