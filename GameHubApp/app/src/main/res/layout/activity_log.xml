@@ -106,11 +106,11 @@
         android:layout_width="127dp"
         android:layout_height="133dp"
         android:background="@drawable/green_log"
+        android:contentDescription="Add"
         app:layout_constraintBottom_toBottomOf="@+id/view4"
         app:layout_constraintEnd_toEndOf="@+id/view4"
         app:layout_constraintStart_toStartOf="@+id/view4"
         app:layout_constraintTop_toTopOf="@+id/view4"
-        android:contentDescription="Add"
         app:layout_constraintVertical_bias="0.666" />
 
     <ImageButton
@@ -120,12 +120,12 @@
         android:layout_marginTop="1dp"
         android:layout_marginEnd="303dp"
         android:background="@drawable/home"
+        android:contentDescription="Home"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.28"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view2"
-        android:contentDescription="Home"
         app:layout_constraintVertical_bias="0.527" />
 
     <ImageButton
@@ -134,15 +134,15 @@
         android:layout_height="75dp"
         android:layout_marginTop="9dp"
         android:layout_marginBottom="15dp"
+        android:background="@drawable/profile"
+        android:contentDescription="Profile"
         android:onClick="viewProfile"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.949"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.8"
-        android:contentDescription="Profile"
-        android:background="@drawable/profile"/>
+        app:layout_constraintVertical_bias="0.8" />
 
     <View
         android:id="@+id/view8"
@@ -161,41 +161,28 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <CheckBox
-        android:id="@+id/checkBox_Played2"
+        android:id="@+id/Liked"
         android:layout_width="61dp"
         android:layout_height="22dp"
-        android:layout_marginTop="197dp"
-        android:layout_marginEnd="65dp"
-        android:layout_marginBottom="39dp"
+        android:layout_marginStart="286dp"
+        android:layout_marginTop="406dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="303dp"
         android:text="Liked"
         android:textSize="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view8"
-        app:layout_constraintEnd_toEndOf="@+id/view8"
-        app:layout_constraintStart_toEndOf="@+id/ratingBar"
-        app:layout_constraintTop_toTopOf="@+id/view8" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="56dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="263dp"
-        android:layout_marginTop="49dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginBottom="192dp"
-        android:text="Year"
-        app:layout_constraintBottom_toBottomOf="@+id/view8"
-        app:layout_constraintEnd_toEndOf="@+id/view8"
-        app:layout_constraintStart_toStartOf="@+id/view8"
-        app:layout_constraintTop_toTopOf="@+id/view8" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/clear_button"
         android:layout_width="59dp"
         android:layout_height="28dp"
         android:layout_marginStart="3dp"
         android:layout_marginEnd="296dp"
         android:layout_marginBottom="230dp"
-        android:text="Back"
+        android:text="clear"
         android:textSize="6dp"
         app:layout_constraintBottom_toBottomOf="@+id/view8"
         app:layout_constraintEnd_toEndOf="@+id/view8"
@@ -216,19 +203,23 @@
         app:layout_constraintTop_toTopOf="@+id/view8"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="56dp"
-        android:layout_height="17dp"
+
+    <EditText
+        android:id="@+id/titleEditText"
+        android:layout_width="186dp"
+        android:layout_height="41dp"
         android:layout_marginStart="136dp"
         android:layout_marginTop="49dp"
         android:layout_marginEnd="166dp"
         android:layout_marginBottom="192dp"
-        android:text="Tittle"
+        android:hint="Enter game title here"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/view8"
         app:layout_constraintEnd_toEndOf="@+id/view8"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/view8"
-        app:layout_constraintTop_toTopOf="@+id/view8" />
+        app:layout_constraintTop_toTopOf="@+id/view8"
+        app:layout_constraintVertical_bias="0.541" />
 
     <CheckBox
         android:id="@+id/checkBox_Played"
@@ -250,7 +241,7 @@
         android:layout_height="22dp"
         android:layout_marginTop="84dp"
         android:layout_marginBottom="152dp"
-        android:text="Played"
+        android:text="Playing"
         android:textSize="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/view8"
         app:layout_constraintEnd_toStartOf="@+id/checkBox_Played_before"
@@ -280,22 +271,37 @@
         android:layout_marginEnd="39dp"
         android:layout_marginBottom="73dp"
         android:background="#C9CDCDCD"
+        android:hint="Enter game review here"
+        android:textSize="5sp"
         app:layout_constraintBottom_toBottomOf="@+id/view8"
         app:layout_constraintEnd_toEndOf="@+id/view8"
         app:layout_constraintStart_toStartOf="@+id/view8"
-        app:layout_constraintTop_toTopOf="@+id/view8" />
+        app:layout_constraintTop_toTopOf="@+id/view8">
+
+        <EditText
+            android:id="@+id/reviewEditText"
+            android:layout_width="match_parent"
+            android:layout_height="47dp"
+            android:textSize="5sp" />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <!--    https://stackoverflow.com/questions/37907568/ratingbar-not-working-not-clickable-when-using-ratingbarstylesmall-style-->
 
     <RatingBar
         android:id="@+id/ratingBar"
-        android:layout_width="96dp"
-        android:layout_height="23dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="197dp"
-        android:layout_marginBottom="38dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view8"
-        app:layout_constraintEnd_toStartOf="@+id/checkBox_Played2"
-        app:layout_constraintStart_toStartOf="@+id/view8"
-        app:layout_constraintTop_toTopOf="@+id/view8" />
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="83dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="412dp"
+        android:layout_marginEnd="163dp"
+        android:layout_marginBottom="300dp"
+        android:isIndicator="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_save"

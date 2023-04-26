@@ -70,10 +70,10 @@ public class MainActivity extends AppCompatActivity {
         //CarNames.remove(index);
         return newGame;
     }
-    public users createUser(){
-        users newUser = new users(newUser.setUserID(0) , newUser.setUserName("Jonnn"), newUser.setFirstName("Jon"), newUser.setUserEmail("goins@yahoo.com"), newUser.setCurrentPlay(new ArrayList<>()), newUser.setHavePlayed(new ArrayList<>()), newUser.setMyFriends(new ArrayList<>()));
-        return newUser;
-    }
+//    public users createUser(){
+//        users newUser = new users(newUser.setUserID(0) , newUser.setUserName("Jonnn"), newUser.setFirstName("Jon"), newUser.setUserEmail("goins@yahoo.com"), newUser.setCurrentPlay(new ArrayList<>()), newUser.setHavePlayed(new ArrayList<>()), newUser.setMyFriends(new ArrayList<>()));
+//        return newUser;
+//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 

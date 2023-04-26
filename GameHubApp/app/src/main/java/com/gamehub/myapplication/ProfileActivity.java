@@ -64,8 +64,8 @@ public class ProfileActivity extends AppCompatActivity {
 //                builder.create().show();
 
 
-                Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
-                startActivityForResult(intent, EDIT_PROFILE_REQUEST_CODE);
+//                Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
+//                startActivityForResult(intent, EDIT_PROFILE_REQUEST_CODE);
 
 
 //                // shelf button, take to shelf page
