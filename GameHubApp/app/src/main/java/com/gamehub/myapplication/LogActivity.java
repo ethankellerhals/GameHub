@@ -97,6 +97,7 @@ public class LogActivity extends AppCompatActivity {
         EditText discription_log = (EditText) findViewById(R.id.reviewEditText);
         RatingBar rating_log = (RatingBar) findViewById(R.id.ratingBar);
         CheckBox liked_log = (CheckBox) findViewById(R.id.Liked);
+        Button clearbtn = (Button) findViewById(R.id.clear_button);
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +110,14 @@ public class LogActivity extends AppCompatActivity {
                 } else {
                     Toast.makeText(getApplicationContext(), "Please enter a name and text to save.", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        clearbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentReset = new Intent(LogActivity.this, LogActivity.class);
+                LogActivity.this.startActivity(intentReset);
             }
         });
     }
