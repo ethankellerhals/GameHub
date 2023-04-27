@@ -11,6 +11,8 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Random;
 import java.util.ArrayList;
 import java.util.*;
@@ -33,51 +35,53 @@ public class MainActivity extends AppCompatActivity {
 
     public MainActivity(){
         this.userList = userList;
-        this.tempGameList = setgame(tempGameList, "/Users/iiicemane/Desktop/OOAD/Final/Gamehub/GameHub/GameHubApp/gameDataset");
-        this.gamesList = createGame();
+//        this.tempGameList = setgame(tempGameList);
+//        this.gamesList = createGame();
     }
     public void setUserList(List<users> userList){
         this.userList = userList;
     }
-    public void setGamesList(List<games> gamesList){
-        this.gamesList = gamesList;
-    }
+//    public void setGamesList(List<games> gamesList){
+//        this.gamesList = gamesList;
+//    }
     public List<users> getUserList(){
         return this.userList;
     }
-    public List<games> getGamesList(){
-        return this.gamesList;
-    }
+//    public List<games> getGamesList(){
+//        return this.gamesList;
+//    }
 
 
-    public List<String> setgame(List<String> currList, String filesname){
+    public List<String> setgame(List<String> currList){
         try {
-            File file = new File(filesname);
-            Scanner scanner = new Scanner(file);
+            // Open the file from assets directory
+            InputStream inputStream = getAssets().open("gameDataset.csv");
 
+            // Read the contents of the file
+            Scanner scanner = new Scanner(inputStream);
             while (scanner.hasNextLine()) {
-                String line1 = scanner.nextLine();
-                currList.add(line1);
+                String line = scanner.nextLine();
+                currList.add(line);
+                // Process the line
             }
-
-            scanner.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            // Handle the error
         }
+
         return currList;
     }
     public List<games> createGame(){
-        Random random = new Random();// https://www.baeldung.com/java-random-list-element#:~:text=Picking%20a%20Random%20Item%2FItems,that%20exceeds%20your%20List%27s%20size |AND| https://www.geeksforgeeks.org/arrays-aslist-method-in-java-with-examples/
-        int index = random.nextInt(tempGameList.size());
+//        Random random = new Random();// https://www.baeldung.com/java-random-list-element#:~:text=Picking%20a%20Random%20Item%2FItems,that%20exceeds%20your%20List%27s%20size |AND| https://www.geeksforgeeks.org/arrays-aslist-method-in-java-with-examples/
+//        int index = random.nextInt(tempGameList.size());
         List<games> temp = new ArrayList<>();
         int dex = 0;
         String[] splitstr;
         // split list. Should be in order (car, performance, pickup) used https://stackoverflow.com/questions/7899525/how-to-split-a-string-by-space
-        while(dex <= tempGameList.size()){
-            splitstr = this.tempGameList.get(index).split("\\s+"); // ID, title, publisher,rating
+        while(dex < tempGameList.size()){
+            splitstr = this.tempGameList.get(dex).split("\\s+"); // ID, title, publisher,rating
             games newGame = new games(0.0, splitstr[1], splitstr[5], 0);
             temp.add(newGame);
+            dex++;
         }
         return temp;
 
@@ -91,7 +95,8 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        tempGameList = setgame(tempGameList);
+        gamesList = createGame();
         // after clicking the profile button, take to profile page
         profileBtn = (ImageButton) findViewById(R.id.profileButton);
         // shelf button, take to shelf page
@@ -106,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         logBtn = (ImageButton) findViewById(R.id.addButton);
         // home button, take to home page
         homeBtn = (ImageButton) findViewById(R.id.homeButton);
-        setgame(tempGameList,"/Users/iiicemane/Desktop/OOAD/Final/Gamehub/GameHub/GameHubApp/gameDataset" );
+        setgame(tempGameList);
         createGame();
 
 

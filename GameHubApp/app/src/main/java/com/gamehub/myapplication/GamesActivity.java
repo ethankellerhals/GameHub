@@ -23,11 +23,11 @@ public class GamesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_games);
 
         // to use the iteratore for games
-        gameIterator TempGameLibary = new gameIterator();
-        for(IteratorPattern x = TempGameLibary.returnIteratorPattern(); x.validNext();){
-            String title = (String)x.next();
-            System.out.println("Title: " + title);
-        }
+//        gameIterator TempGameLibary = new gameIterator();
+//        for(IteratorPattern x = TempGameLibary.returnIteratorPattern(); x.validNext();){
+//            String title = (String)x.next();
+//            System.out.println("Title: " + title);
+//        }
 
         // after clicking the profile button, take to profile page
         profileBtn = (ImageButton) findViewById(R.id.profileButton);
