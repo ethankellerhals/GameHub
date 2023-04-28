@@ -86,10 +86,12 @@ public class MainActivity extends AppCompatActivity {
         return temp;
 
     }
+
     public users createUser(){
         users newUser = new users(0 , "Jonnn", "Jon", "goins@yahoo.com", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         return newUser;
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
