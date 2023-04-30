@@ -4,10 +4,10 @@ import java.util.Arrays;
 
 public class gameIterator implements IteratorContainer{
     // testing
-    games Mario = new games(10.9, "Mario", "Nintendo", 4);
-    games AssassinsCreed = new games(8.6, "Assassins Creed", "Ubisoft", 3);
-    games CallofDutyBlackOps2 = new games(19.9, "Call of Duty Black Ops 2", "Activision", 5);
-    games RainbowSixSiedge = new games(88.2, "Rainbow Six Siedge", "Ubisoft", 3);
+    games Mario = new games(10, "Mario", "Nintendo", 4.0);
+    games AssassinsCreed = new games(8, "Assassins Creed", "Ubisoft", 3.0);
+    games CallofDutyBlackOps2 = new games(19, "Call of Duty Black Ops 2", "Activision", 5.0);
+    games RainbowSixSiedge = new games(88, "Rainbow Six Siedge", "Ubisoft", 3.0);
 
     public games tempGames[] = {Mario, AssassinsCreed, CallofDutyBlackOps2, RainbowSixSiedge};
 

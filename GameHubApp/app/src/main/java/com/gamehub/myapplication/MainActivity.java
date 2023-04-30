@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     Button genreBtn;
     Button friendBtn;
     private List<users> userList = new ArrayList<>();
-    private List<games> gamesList = new ArrayList<>();
+    public List<games> gamesList = new ArrayList<>();
     private List<String> tempGameList = new ArrayList<>();
 
     public MainActivity(){
@@ -52,38 +52,38 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
 
-    public List<String> setgame(List<String> currList){
-        try {
-            // Open the file from assets directory
-            InputStream inputStream = getAssets().open("gameDataset.csv");
-
-            // Read the contents of the file
-            Scanner scanner = new Scanner(inputStream);
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                currList.add(line);
-                // Process the line
-            }
-        } catch (IOException e) {
-            // Handle the error
-        }
-
-        return currList;
-    }
-    public List<games> createGame(){
-
-        List<games> temp = new ArrayList<>();
-        int dex = 0;
-        String[] splitstr;
-        // split list. Should be in order (car, performance, pickup) used https://stackoverflow.com/questions/7899525/how-to-split-a-string-by-space
-        while(dex < tempGameList.size()){
-            splitstr = this.tempGameList.get(dex).split("\\s+"); // ID, title, publisher,rating
-            games newGame = new games(0.0, splitstr[1], splitstr[5], 0);
-            gamesList.add(newGame);
-            dex++;
-        }
-        return temp;
-    }
+//    public List<String> setgame(List<String> currList){
+//        try {
+//            // Open the file from assets directory
+//            InputStream inputStream = getAssets().open("gameDataset.csv");
+//
+//            // Read the contents of the file
+//            Scanner scanner = new Scanner(inputStream);
+//            while (scanner.hasNextLine()) {
+//                String line = scanner.nextLine();
+//                currList.add(line);
+//                // Process the line
+//            }
+//        } catch (IOException e) {
+//            // Handle the error
+//        }
+//
+//        return currList;
+//    }
+//    public List<games> createGame(){
+//
+//        List<games> temp = new ArrayList<>();
+//        int dex = 0;
+//        String[] splitstr;
+//        // split list. Should be in order (car, performance, pickup) used https://stackoverflow.com/questions/7899525/how-to-split-a-string-by-space
+//        while(dex < tempGameList.size()){
+//            splitstr = this.tempGameList.get(dex).split("\\s+"); // ID, title, publisher,rating
+//            games newGame = new games(0.0, splitstr[1], splitstr[5], 0.0);
+//            gamesList.add(newGame);
+//            dex++;
+//        }
+//        return temp;
+//    }
 
     public users createUser(){
         users newUser = new users(0 , "Jonnn", "Jon", "goins@yahoo.com", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
