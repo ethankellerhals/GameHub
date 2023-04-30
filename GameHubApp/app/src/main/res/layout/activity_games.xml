@@ -148,32 +148,14 @@
         android:id="@+id/allGamesTable"
         android:layout_width="409dp"
         android:layout_height="419dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="130dp">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
-
-        <TextView
-            android:id="@+id/testID"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:text="testgggg"
-            />
-        <TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-            <TextView
-                android:id="@+id/testID2"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:text="testzzzzzg"
-            />
-        </TableRow>
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/view4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view">
 
 
     </TableLayout>

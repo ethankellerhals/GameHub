@@ -71,8 +71,7 @@ public class MainActivity extends AppCompatActivity {
         return currList;
     }
     public List<games> createGame(){
-//        Random random = new Random();// https://www.baeldung.com/java-random-list-element#:~:text=Picking%20a%20Random%20Item%2FItems,that%20exceeds%20your%20List%27s%20size |AND| https://www.geeksforgeeks.org/arrays-aslist-method-in-java-with-examples/
-//        int index = random.nextInt(tempGameList.size());
+
         List<games> temp = new ArrayList<>();
         int dex = 0;
         String[] splitstr;
@@ -80,11 +79,10 @@ public class MainActivity extends AppCompatActivity {
         while(dex < tempGameList.size()){
             splitstr = this.tempGameList.get(dex).split("\\s+"); // ID, title, publisher,rating
             games newGame = new games(0.0, splitstr[1], splitstr[5], 0);
-            temp.add(newGame);
+            gamesList.add(newGame);
             dex++;
         }
         return temp;
-
     }
 
     public users createUser(){
@@ -97,8 +95,8 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        tempGameList = setgame(tempGameList);
-        gamesList = createGame();
+//        tempGameList = setgame(tempGameList);
+//        gamesList = createGame();
         // after clicking the profile button, take to profile page
         profileBtn = (ImageButton) findViewById(R.id.profileButton);
         // shelf button, take to shelf page
@@ -113,8 +111,8 @@ public class MainActivity extends AppCompatActivity {
         logBtn = (ImageButton) findViewById(R.id.addButton);
         // home button, take to home page
         homeBtn = (ImageButton) findViewById(R.id.homeButton);
-        setgame(tempGameList);
-        createGame();
+//        setgame(tempGameList);
+//        createGame();
 
 
         logBtn.setOnClickListener(new View.OnClickListener() {
@@ -152,13 +150,13 @@ public class MainActivity extends AppCompatActivity {
                 Intent intendLoadGames = new Intent(MainActivity.this, GamesActivity.class);
                 MainActivity.this.startActivity(intendLoadGames);
 //            This is for the game library page yea?
-                TableLayout tb1=findViewById(R.id.allGamesTable);
-                TableRow r1 = new TableRow(MainActivity.this);
-                r1.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT));
-
-                TextView v1 = new TextView(MainActivity.this);
-                v1.setText("Yooo");
-                r1.addView(v1);
+//                TableLayout tb1=findViewById(R.id.allGamesTable);
+//                TableRow r1 = new TableRow(MainActivity.this);
+//                r1.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT));
+//
+//                TextView v1 = new TextView(MainActivity.this);
+//                v1.setText("Yooo");
+//                r1.addView(v1);
             }
         });
 //        public void create_Table(){
