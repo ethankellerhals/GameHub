@@ -3,9 +3,13 @@ package com.gamehub.myapplication;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
 public class FriendsActivity extends AppCompatActivity {
 
@@ -77,6 +81,149 @@ public class FriendsActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intendLoadGenre = new Intent(FriendsActivity.this, GenreActivity.class);
                 FriendsActivity.this.startActivity(intendLoadGenre);
+
+            }
+        });
+
+        // write friends
+
+        // get friends
+        Button friend1 = (Button) findViewById(R.id.friend1button);
+        Button friend2 = (Button) findViewById(R.id.friend2button);
+        Button friend3 = (Button) findViewById(R.id.friend3button);
+        Button friend4 = (Button) findViewById(R.id.friend4button);
+        Button random1 = (Button) findViewById(R.id.random1);
+        Button random2 = (Button) findViewById(R.id.random2);
+
+        friend1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                // inflate the popup window layout
+                View popupView = getLayoutInflater().inflate(R.layout.popup_info_friend1, null);
+
+                // create the popup window
+                int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+                int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+                boolean focusable = true; // let popup window handle touch events
+                PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+
+                // show the popup window at a specific location on the screen
+                popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+                // get a reference to the TextView and set its text
+                TextView infoTextView = popupView.findViewById(R.id.infoTextView);
+                infoTextView.setText("Favorite Games");
+
+                // get a reference to the Button and set its OnClickListener
+                Button closeButton = popupView.findViewById(R.id.closeButton);
+                closeButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // close the popup window
+                        popupWindow.dismiss();
+                    }
+                });
+            }
+        });
+        friend2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                // inflate the popup window layout
+                View popupView = getLayoutInflater().inflate(R.layout.popup_info_friend2, null);
+
+                // create the popup window
+                int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+                int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+                boolean focusable = true; // let popup window handle touch events
+                PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+
+                // show the popup window at a specific location on the screen
+                popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+                // get a reference to the TextView and set its text
+                TextView infoTextView = popupView.findViewById(R.id.infoTextView);
+                infoTextView.setText("Favorite Games");
+
+                // get a reference to the Button and set its OnClickListener
+                Button closeButton = popupView.findViewById(R.id.closeButton);
+                closeButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // close the popup window
+                        popupWindow.dismiss();
+                    }
+                });
+            }
+        });
+        friend3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                // inflate the popup window layout
+                View popupView = getLayoutInflater().inflate(R.layout.popup_info_friend3, null);
+
+                // create the popup window
+                int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+                int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+                boolean focusable = true; // let popup window handle touch events
+                PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+
+                // show the popup window at a specific location on the screen
+                popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+                // get a reference to the TextView and set its text
+                TextView infoTextView = popupView.findViewById(R.id.infoTextView);
+                infoTextView.setText("Favorite Games");
+
+                // get a reference to the Button and set its OnClickListener
+                Button closeButton = popupView.findViewById(R.id.closeButton);
+                closeButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // close the popup window
+                        popupWindow.dismiss();
+                    }
+                });
+            }
+        });
+        friend4.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                // inflate the popup window layout
+                View popupView = getLayoutInflater().inflate(R.layout.popup_info_friend4, null);
+
+                // create the popup window
+                int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+                int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+                boolean focusable = true; // let popup window handle touch events
+                PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
+
+                // show the popup window at a specific location on the screen
+                popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+                // get a reference to the TextView and set its text
+                TextView infoTextView = popupView.findViewById(R.id.infoTextView);
+                infoTextView.setText("Favorite Games");
+
+                // get a reference to the Button and set its OnClickListener
+                Button closeButton = popupView.findViewById(R.id.closeButton);
+                closeButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // close the popup window
+                        popupWindow.dismiss();
+                    }
+                });
+            }
+        });
+        random1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+
+            }
+        });
+        random2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
 
             }
         });

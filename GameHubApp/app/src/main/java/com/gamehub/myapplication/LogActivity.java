@@ -106,7 +106,7 @@ public class LogActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HashMap<String, logObj> userLogDictionary = new HashMap<>();
+//                HashMap<String, logObj> userLogDictionary = new HashMap<>();
                 if(!TextUtils.isEmpty(discription_log.getText().toString()) && !TextUtils.isEmpty(titleEditText.getText().toString())){
                     logStrategyObj logWithDescription = new logStrategyObj(new LogWithDescription());
                     logWithDescription.log("Adrian", titleEditText.getText().toString(), played_log.isChecked(), playing_log.isChecked(), play_history_log.isChecked(), discription_log.getText().toString(), rating_log.getNumStars(), liked_log.isChecked());
