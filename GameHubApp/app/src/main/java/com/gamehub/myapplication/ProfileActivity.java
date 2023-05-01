@@ -127,8 +127,8 @@ public class ProfileActivity extends AppCompatActivity {
 //                        ProfileActivity.this.startActivity(intendLoadFriend);
 //
 //                    }
-//                });
 
+//                });
             }
         });
     }
