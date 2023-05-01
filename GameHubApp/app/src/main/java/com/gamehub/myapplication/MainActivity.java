@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public users createUser(){
-        users newUser = new users(0 , "Jonnn", "Jon", "goins@yahoo.com", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        users newUser = new users(0 , "Jonnn", "Jon","abc123", "goins@yahoo.com", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         return newUser;
     }
 
@@ -78,8 +78,6 @@ public class MainActivity extends AppCompatActivity {
         logBtn = (ImageButton) findViewById(R.id.addButton);
         // home button, take to home page
         homeBtn = (ImageButton) findViewById(R.id.homeButton);
-//        setgame(tempGameList);
-//        createGame();
 
 
         logBtn.setOnClickListener(new View.OnClickListener() {

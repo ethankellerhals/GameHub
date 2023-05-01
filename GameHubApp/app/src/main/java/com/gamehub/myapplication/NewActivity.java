@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.content.Intent;
 import android.widget.TableLayout;
@@ -32,6 +33,7 @@ public class NewActivity extends AppCompatActivity {
     Button sinUpBtn;
     Button sinInBtn;
     Button saveUseBtn;
+    EditText userNameText;
     private List<users> userList = new ArrayList<>();
     public List<games> gamesList = new ArrayList<>();
     private List<String> tempGameList = new ArrayList<>();
@@ -55,32 +57,22 @@ public class NewActivity extends AppCompatActivity {
 //    }
 
 
-
     public users createUser(){
-        users newUser = new users(0 , "Jonnn", "Jon", "goins@yahoo.com", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        users newUser = new users(0 , "Jonnn", "Jon","abc123", "goins@yahoo.com", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         return newUser;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.newprofile);
         // after clicking the profile button, take to profile page
         profileBtn = (ImageButton) findViewById(R.id.profileButton);
-        // shelf button, take to shelf page
-        shelfBtn = findViewById(R.id.shelfButton);
-        // game button, take to game page
-        gamesBtn = findViewById(R.id.gameButton);
-        // genre button, take to genre page
-        genreBtn = findViewById(R.id.genreButton);
-        // friend button, take to friend page
-        friendBtn = findViewById(R.id.friendsButton);
         // log button, take to log page
         logBtn = (ImageButton) findViewById(R.id.addButton);
         // home button, take to home page
         homeBtn = (ImageButton) findViewById(R.id.homeButton);
-
+        createUser();
         logBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

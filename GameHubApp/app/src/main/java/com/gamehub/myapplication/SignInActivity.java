@@ -5,11 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.content.Intent;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -32,6 +34,8 @@ public class SignInActivity extends AppCompatActivity {
     Button sinUpBtn;
     Button sinInBtn;
     Button saveUseBtn;
+    EditText userNameText;
+    EditText passWordText;
     private List<users> userList = new ArrayList<>();
     public List<games> gamesList = new ArrayList<>();
     private List<String> tempGameList = new ArrayList<>();
@@ -49,10 +53,8 @@ public class SignInActivity extends AppCompatActivity {
     }
 
 
-
-
     public users createUser(){
-        users newUser = new users(0 , "Jonnn", "Jon", "goins@yahoo.com", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        users newUser = new users(0 , "Jonnn", "Jon","abc123", "goins@yahoo.com", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         return newUser;
     }
 
@@ -72,18 +74,19 @@ public class SignInActivity extends AppCompatActivity {
 
         sinInBtn = findViewById(R.id.sign_in_button);
         sinUpBtn = findViewById(R.id.sign_up_text_view);
+        userNameText = findViewById(R.id.email_edit_text);
+        passWordText = findViewById(R.id.password_edit_text);
         sinInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 for(users using : userList) {
-                    if(nameT == using.getuserName() && passT == using.getPassword()){
-
+                    if(userNameText.getText().toString().equals(using.getuserName()) && passWordText.getText().toString().equals(using.getPassword())){
+                        Intent intentLoadNewAdd = new Intent(SignInActivity.this, MainActivity.class);
+                        SignInActivity.this.startActivity(intentLoadNewAdd);
+                        return;
                     }
-
                 }
-
-                Intent intentLoadNewAdd = new Intent(SignInActivity.this, LogActivity.class);
-                SignInActivity.this.startActivity(intentLoadNewAdd);
+                Toast.makeText(SignInActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
             }
         });
 
