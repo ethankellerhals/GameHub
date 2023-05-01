@@ -20,7 +20,7 @@ import java.util.List;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-public class MainActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity {
 
     ImageButton profileBtn;
     ImageButton logBtn;
@@ -29,27 +29,25 @@ public class MainActivity extends AppCompatActivity {
     Button gamesBtn;
     Button genreBtn;
     Button friendBtn;
+    Button sinUpBtn;
+    Button sinInBtn;
+    Button saveUseBtn;
     private List<users> userList = new ArrayList<>();
     public List<games> gamesList = new ArrayList<>();
     private List<String> tempGameList = new ArrayList<>();
 
-    public MainActivity(){
+    public SignInActivity(){
         this.userList = userList;
-//        this.tempGameList = setgame(tempGameList);
-//        this.gamesList = createGame();
+
     }
     public void setUserList(List<users> userList){
         this.userList = userList;
     }
-//    public void setGamesList(List<games> gamesList){
-//        this.gamesList = gamesList;
-//    }
+
     public List<users> getUserList(){
         return this.userList;
     }
-//    public List<games> getGamesList(){
-//        return this.gamesList;
-//    }
+
 
 
 
@@ -62,90 +60,87 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_signin);
         // after clicking the profile button, take to profile page
         profileBtn = (ImageButton) findViewById(R.id.profileButton);
         // shelf button, take to shelf page
-        shelfBtn = findViewById(R.id.shelfButton);
-        // game button, take to game page
-        gamesBtn = findViewById(R.id.gameButton);
-        // genre button, take to genre page
-        genreBtn = findViewById(R.id.genreButton);
-        // friend button, take to friend page
-        friendBtn = findViewById(R.id.friendsButton);
+
         // log button, take to log page
         logBtn = (ImageButton) findViewById(R.id.addButton);
         // home button, take to home page
         homeBtn = (ImageButton) findViewById(R.id.homeButton);
-//        setgame(tempGameList);
-//        createGame();
 
+        sinInBtn = findViewById(R.id.sign_in_button);
+        sinUpBtn = findViewById(R.id.sign_up_text_view);
+        sinInBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for(users using : userList) {
+                    if(nameT == using.getuserName() && passT == using.getPassword()){
+
+                    }
+
+                }
+
+                Intent intentLoadNewAdd = new Intent(SignInActivity.this, LogActivity.class);
+                SignInActivity.this.startActivity(intentLoadNewAdd);
+            }
+        });
 
         logBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentLoadNewAdd = new Intent(MainActivity.this, LogActivity.class);
-                MainActivity.this.startActivity(intentLoadNewAdd);
+                Intent intentLoadNewAdd = new Intent(SignInActivity.this, LogActivity.class);
+                SignInActivity.this.startActivity(intentLoadNewAdd);
             }
         });
         profileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentLoadNewActivity = new Intent(MainActivity.this, ProfileActivity.class);
-                MainActivity.this.startActivity(intentLoadNewActivity);
+                Intent intentLoadNewActivity = new Intent(SignInActivity.this, ProfileActivity.class);
+                SignInActivity.this.startActivity(intentLoadNewActivity);
             }
         });
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentLoadNewHome = new Intent(MainActivity.this, MainActivity.class);
-                MainActivity.this.startActivity(intentLoadNewHome);
+                Intent intentLoadNewHome = new Intent(SignInActivity.this, NewActivity.class);
+                SignInActivity.this.startActivity(intentLoadNewHome);
             }
         });
         shelfBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intendLoadShelfs = new Intent(MainActivity.this, ShelfActivity.class);
-                MainActivity.this.startActivity(intendLoadShelfs);
+                Intent intendLoadShelfs = new Intent(SignInActivity.this, ShelfActivity.class);
+                SignInActivity.this.startActivity(intendLoadShelfs);
 
             }
         });
         gamesBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intendLoadGames = new Intent(MainActivity.this, GamesActivity.class);
-                MainActivity.this.startActivity(intendLoadGames);
-//            This is for the game library page yea?
-//                TableLayout tb1=findViewById(R.id.allGamesTable);
-//                TableRow r1 = new TableRow(MainActivity.this);
-//                r1.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT));
-//
-//                TextView v1 = new TextView(MainActivity.this);
-//                v1.setText("Yooo");
-//                r1.addView(v1);
+                Intent intendLoadGames = new Intent(SignInActivity.this, GamesActivity.class);
+                SignInActivity.this.startActivity(intendLoadGames);
             }
         });
-//        public void create_Table(){
-//            TableLayout tb1=findViewById(R.id.allGamesTable);
-//
-//        }
+
         genreBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intendLoadGenre = new Intent(MainActivity.this, GenreActivity.class);
-                MainActivity.this.startActivity(intendLoadGenre);
+                Intent intendLoadGenre = new Intent(SignInActivity.this, GenreActivity.class);
+                SignInActivity.this.startActivity(intendLoadGenre);
 
             }
         });
         friendBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Intent intendLoadFriend = new Intent(MainActivity.this, FriendsActivity.class);
-                MainActivity.this.startActivity(intendLoadFriend);
+                Intent intendLoadFriend = new Intent(SignInActivity.this, FriendsActivity.class);
+                SignInActivity.this.startActivity(intendLoadFriend);
 
             }
         });
 
     }
 }
+

@@ -4,10 +4,12 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
+import android.widget.Switch;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -27,6 +29,7 @@ public class GamesActivity extends AppCompatActivity {
     Button shelfBtn;
     Button genreBtn;
     Button friendBtn;
+    Switch playSw;
 
     private List<users> userList = new ArrayList<>();
     public List<games> gamesList = new ArrayList<>();
@@ -47,11 +50,8 @@ public class GamesActivity extends AppCompatActivity {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] tokens = line.split(",");
-
-//                    double id = Double.parseDouble(tokens[6]);
                     String title = tokens[1];
                     String publisher = tokens[2];
-//                    double rating = Double.parseDouble(tokens[3]);
                     if (title != "Name"){
                         currList.add(new games(generateID(), title, publisher, 0.0));
                     }
@@ -63,18 +63,31 @@ public class GamesActivity extends AppCompatActivity {
         gamesList = currList;
         TableLayout tableLayout = findViewById(R.id.allGamesTable);
         ScrollView scrollView = findViewById(R.id.tableScroll);
-        TableRow trow = findViewById(R.id.row1);
-
+//
+        Switch swtch = findViewById(R.id.switch1);
+        CardView cardV = findViewById(R.id.gameCard);
+        CardView cardView = findViewById(R.id.gameCard);
+        TextView titl = findViewById(R.id.titleTextView);
+        TextView publ = findViewById(R.id.publisherTextView);
+        TextView ratl = findViewById(R.id.ratingTextView);
         if(!gamesList.isEmpty()){
             for (games tee : gamesList) {
                 TableRow tableRow = new TableRow(this);
 
+                cardView.setLayoutParams(cardV.getLayoutParams());
+                cardView.setBottom(cardV.getBottom());
+                cardView.setId(cardV.getId());
+                cardView.setVisibility(cardV.getVisibility());
                 TextView nameTextView = new TextView(this);
                 TextView pubTextView = new TextView(this);
                 TextView ratTextView = new TextView(this);
+
                 nameTextView.setText(tee.getTitle() );
                 pubTextView.setText(tee.getPublisher());
                 ratTextView.setText(String.valueOf(tee.getRating()));
+                titl.setText(tee.getTitle());
+                ratl.setText(String.valueOf(tee.getRating()));
+                publ.setText(tee.getPublisher());
 
                 tableRow.addView(nameTextView);
                 tableRow.addView(pubTextView);
@@ -84,7 +97,8 @@ public class GamesActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v)
                     {
-
+                        cardView.setVisibility(View.VISIBLE);
+                        tableLayout.setVisibility(View.GONE);
                     }
                 });
             }

@@ -5,6 +5,7 @@ public class users {
     private Integer userID;
     private String userName;
     private String firstName;
+    private String password;
     private List<games> currentPlay;
     private List <games> havePlayed;
     private List <users> myFriends;
