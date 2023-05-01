@@ -25,6 +25,7 @@ public class ProfileActivity extends AppCompatActivity {
     private TextView usernameTextView;
     private TextView bioTextView;
 
+    Button editProfileBtn;
     private static final int EDIT_PROFILE_REQUEST_CODE = 1;
 
     @Override
@@ -45,7 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
         bioTextView.setText(bio);
 
 
-        Button editProfileBtn = findViewById(R.id.editProfileButton);
+        editProfileBtn = findViewById(R.id.editProfileButton);
         editProfileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
