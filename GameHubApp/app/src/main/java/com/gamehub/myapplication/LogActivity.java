@@ -12,6 +12,10 @@ import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 
 public class LogActivity extends AppCompatActivity {
@@ -102,21 +106,55 @@ public class LogActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                HashMap<String, logObj> userLogDictionary = new HashMap<>();
+//                HashMap<String, logObj> userLogDictionary = new HashMap<>();
                 if(!TextUtils.isEmpty(discription_log.getText().toString()) && !TextUtils.isEmpty(titleEditText.getText().toString())){
                     logStrategyObj logWithDescription = new logStrategyObj(new LogWithDescription());
                     logWithDescription.log("Adrian", titleEditText.getText().toString(), played_log.isChecked(), playing_log.isChecked(), play_history_log.isChecked(), discription_log.getText().toString(), rating_log.getNumStars(), liked_log.isChecked());
                     Toast.makeText(getApplicationContext(), "Game saved for user: " + "Adrian", Toast.LENGTH_SHORT).show();
+
+                    // Write data to file
+                    try {
+                        String filename = "Derps_logs.txt";
+                        File file = new File(getExternalFilesDir(null), filename);
+                        FileWriter writer = new FileWriter(file, true);
+//                        writer.write("Hello, world!");
+                        String content = "\nTitle: " + titleEditText.getText().toString() + "\nPlayed: " + played_log.isChecked() + "\nPlaying: " + playing_log.isChecked() + "\nPlay Previously: " + play_history_log.isChecked() + "\nReview: "+discription_log.getText().toString()+ "\nRating: "+ rating_log.getNumStars()+ "\nLiked: "+ liked_log.isChecked()+"\n";
+                        writer.write(content);
+                        writer.flush();
+                        writer.close();
+                        Toast.makeText(getApplicationContext(), "File saved at " + file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 }else if(TextUtils.isEmpty(discription_log.getText().toString()) && !TextUtils.isEmpty(titleEditText.getText().toString())){
                     logStrategyObj logWithoutDescription = new logStrategyObj(new LogWithoutDescription());
                     logWithoutDescription.log("Adrian", titleEditText.getText().toString(), played_log.isChecked(), playing_log.isChecked(), play_history_log.isChecked(), discription_log.getText().toString(), rating_log.getNumStars(), liked_log.isChecked());
                     Toast.makeText(getApplicationContext(), "Game saved for user: " + "Adrian", Toast.LENGTH_SHORT).show();
+
+                    // Write data to file
+                    try {
+                        String filename = "Derps_logs.txt";
+                        File file = new File(getExternalFilesDir(null), filename);
+                        FileWriter writer = new FileWriter(file, true);
+//                        writer.write("Hello, world!");
+                        String content = "\nTitle: " + titleEditText.getText().toString() + "\nPlayed: " + played_log.isChecked() + "\nPlaying: " + playing_log.isChecked() + "\nPlay Previously: " + play_history_log.isChecked() + "\nReview: N/A "+ "\nRating: "+ rating_log.getNumStars()+ "\nLiked: "+ liked_log.isChecked()+"\n";
+                        writer.write(content);
+                        writer.flush();
+                        writer.close();
+                        Toast.makeText(getApplicationContext(), "File saved at " + file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+
                 }else{
                     Toast.makeText(getApplicationContext(), "Please enter a name and text to save.", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
+
+
 
         clearbtn.setOnClickListener(new View.OnClickListener() {
             @Override

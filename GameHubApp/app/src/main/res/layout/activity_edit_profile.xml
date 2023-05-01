@@ -7,11 +7,11 @@
     tools:context=".EditProfileActivity">
 
     <Button
-        android:id="@+id/saveChangesButton"
+        android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
-        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteX="89dp"
         tools:layout_editor_absoluteY="421dp" />
 
     <ImageView
@@ -21,4 +21,28 @@
         tools:layout_editor_absoluteX="49dp"
         tools:layout_editor_absoluteY="67dp"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        tools:layout_editor_absoluteX="225dp"
+        tools:layout_editor_absoluteY="421dp" />
+
+    <Button
+        android:id="@+id/changeProfilePictureButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Profile Picture"
+        tools:layout_editor_absoluteX="57dp"
+        tools:layout_editor_absoluteY="214dp" />
+
+    <TextView
+        android:id="@+id/usernameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="256dp"
+        tools:layout_editor_absoluteY="83dp" />
 </android.support.constraint.ConstraintLayout>
