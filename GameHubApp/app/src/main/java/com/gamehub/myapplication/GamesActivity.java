@@ -1,11 +1,25 @@
 package com.gamehub.myapplication;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ScrollView;
+import android.widget.Switch;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class GamesActivity extends AppCompatActivity {
 
@@ -15,12 +29,93 @@ public class GamesActivity extends AppCompatActivity {
     Button shelfBtn;
     Button genreBtn;
     Button friendBtn;
+    Switch playSw;
+
+    private List<users> userList = new ArrayList<>();
+    public List<games> gamesList = new ArrayList<>();
+    private List<String> tempGameList = new ArrayList<>();
+    public Integer currIDCount = 1;
+    public int generateID(){
+        return this.currIDCount++;
+    }
+    public void setgame() {
+
+        List<games> currList = new ArrayList<>();
+        try {
+            // Open the file from assets directory
+            InputStream inputStream = getAssets().open("gameDataset.csv");
+
+            // Read the contents of the file
+            Scanner scanner = new Scanner(inputStream);
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] tokens = line.split(",");
+                    String title = tokens[1];
+                    String publisher = tokens[2];
+                    if (title != "Name"){
+                        currList.add(new games(generateID(), title, publisher, 0.0));
+                    }
+            }
+            System.out.println("curr "+currList.size());
+        } catch (IOException e) {
+            System.out.println("eerr");
+        }
+        gamesList = currList;
+        TableLayout tableLayout = findViewById(R.id.allGamesTable);
+        ScrollView scrollView = findViewById(R.id.tableScroll);
+//
+        Switch swtch = findViewById(R.id.switch1);
+        CardView cardV = findViewById(R.id.gameCard);
+        CardView cardView = findViewById(R.id.gameCard);
+        TextView titl = findViewById(R.id.titleTextView);
+        TextView publ = findViewById(R.id.publisherTextView);
+        TextView ratl = findViewById(R.id.ratingTextView);
+        if(!gamesList.isEmpty()){
+            for (games tee : gamesList) {
+                TableRow tableRow = new TableRow(this);
+
+                cardView.setLayoutParams(cardV.getLayoutParams());
+                cardView.setBottom(cardV.getBottom());
+                cardView.setId(cardV.getId());
+                cardView.setVisibility(cardV.getVisibility());
+                TextView nameTextView = new TextView(this);
+                TextView pubTextView = new TextView(this);
+                TextView ratTextView = new TextView(this);
+
+                nameTextView.setText(tee.getTitle() );
+                pubTextView.setText(tee.getPublisher());
+                ratTextView.setText(String.valueOf(tee.getRating()));
+                titl.setText(tee.getTitle());
+                ratl.setText(String.valueOf(tee.getRating()));
+                publ.setText(tee.getPublisher());
+
+                tableRow.addView(nameTextView);
+                tableRow.addView(pubTextView);
+                tableRow.addView(ratTextView);
+                tableLayout.addView(tableRow);
+                tableRow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        cardView.setVisibility(View.VISIBLE);
+                        tableLayout.setVisibility(View.GONE);
+                    }
+                });
+            }
+        }
+        else{
+            System.out.println("Empty game list ");
+            System.out.println("Number of games: " + gamesList.size());
+        }
+    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_games);
+        setgame();
+//        TableLayout tableLayout = findViewById(R.id.allGamesTable);
 
         // to use the iteratore for games
 //        gameIterator TempGameLibary = new gameIterator();
@@ -41,6 +136,7 @@ public class GamesActivity extends AppCompatActivity {
         logBtn = (ImageButton) findViewById(R.id.addButton);
         // home button, take to home page
         homeBtn = (ImageButton) findViewById(R.id.homeButton);
+
 
         logBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,4 +187,7 @@ public class GamesActivity extends AppCompatActivity {
 
 
     }
+
+
 }
+
