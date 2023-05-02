@@ -59,7 +59,7 @@
         android:layout_marginTop="590dp"
         android:layout_marginEnd="263dp"
         android:layout_marginBottom="32dp"
-        android:background="@drawable/blackops2"
+        android:background="@drawable/bo2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

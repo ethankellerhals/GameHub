@@ -13,6 +13,9 @@ import android.widget.ImageButton;
 import android.graphics.Bitmap;
 import android.widget.TextView;
 import android.widget.ImageView;
+
+import java.util.ArrayList;
+
 public class ProfileActivity extends AppCompatActivity {
 
     ImageButton logBtn;
@@ -24,6 +27,11 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageView profilePictureImageView;
     private TextView usernameTextView;
     private TextView bioTextView;
+
+    public users createUser(){
+        users newUser = new users(0 , "Jonnn", "Jon","abc123", "goins@yahoo.com", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        return newUser;
+    }
 
     Button editProfileBtn;
     private static final int EDIT_PROFILE_REQUEST_CODE = 1;
@@ -37,23 +45,25 @@ public class ProfileActivity extends AppCompatActivity {
         usernameTextView = findViewById(R.id.username);
         //bioTextView = findViewById(R.id.bio);
 
+        users newU = createUser();
+
         String profilePicturePath = loadProfilePicturePathFromStorage();
         Bitmap profilePictureBitmap = BitmapFactory.decodeFile(profilePicturePath);
         profilePictureImageView.setImageBitmap(profilePictureBitmap);
         String username = loadUsernameFromStorage();
-        usernameTextView.setText(username);
-        String bio = loadBioFromStorage();
-        bioTextView.setText(bio);
+        usernameTextView.setText(newU.getuserName());
+//        String bio = loadBioFromStorage();
+//        bioTextView.setText(newU.);
 
 
         editProfileBtn = findViewById(R.id.editProfileButton);
         editProfileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intentLoadNewActivity = new Intent(ProfileActivity.this, EditProfileActivity.class);
-//                ProfileActivity.this.startActivity(intentLoadNewActivity);
+                Intent intentLoadNewActivity = new Intent(ProfileActivity.this, EditProfileActivity.class);
+                ProfileActivity.this.startActivity(intentLoadNewActivity);
 
-
+//
 //                LayoutInflater inflater = getLayoutInflater();
 //
 //                View customizeFormView = getLayoutInflater().inflate(R.layout.activity_edit_profile, null);
@@ -66,69 +76,69 @@ public class ProfileActivity extends AppCompatActivity {
 //                builder.create().show();
 
 
-//                Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
-//                startActivityForResult(intent, EDIT_PROFILE_REQUEST_CODE);
+                Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
+                startActivityForResult(intent, EDIT_PROFILE_REQUEST_CODE);
 
 
-//                // shelf button, take to shelf page
-//                shelfBtn = findViewById(R.id.shelfButton);
-//                // game button, take to game page
-//                gamesBtn = findViewById(R.id.gameButton);
-//                // genre button, take to genre page
-//                genreBtn = findViewById(R.id.genreButton);
-//                // friend button, take to friend page
-//                friendBtn = findViewById(R.id.friendsButton);
-//                // log button, take to log page
-//                logBtn = (ImageButton) findViewById(R.id.addButton);
-//                // home button, take to home page
-//                homeBtn = (ImageButton) findViewById(R.id.homeButton);
-//                logBtn.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intentLoadNewAdd = new Intent(ProfileActivity.this, LogActivity.class);
-//                        ProfileActivity.this.startActivity(intentLoadNewAdd);
-//                    }
-//                });
-//                homeBtn.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intentLoadNewHome = new Intent(ProfileActivity.this, MainActivity.class);
-//                        ProfileActivity.this.startActivity(intentLoadNewHome);
-//                    }
-//                });
-//                shelfBtn.setOnClickListener(new View.OnClickListener(){
-//                    @Override
-//                    public void onClick(View v){
-//                        Intent intendLoadShelfs = new Intent(ProfileActivity.this, ShelfActivity.class);
-//                        ProfileActivity.this.startActivity(intendLoadShelfs);
-//
-//                    }
-//                });
-//                gamesBtn.setOnClickListener(new View.OnClickListener(){
-//                    @Override
-//                    public void onClick(View v){
-//                        Intent intendLoadGames = new Intent(ProfileActivity.this, GamesActivity.class);
-//                        ProfileActivity.this.startActivity(intendLoadGames);
-//
-//                    }
-//                });
-//                genreBtn.setOnClickListener(new View.OnClickListener(){
-//                    @Override
-//                    public void onClick(View v){
-//                        Intent intendLoadGenre = new Intent(ProfileActivity.this, GenreActivity.class);
-//                        ProfileActivity.this.startActivity(intendLoadGenre);
-//
-//                    }
-//                });
-//                friendBtn.setOnClickListener(new View.OnClickListener(){
-//                    @Override
-//                    public void onClick(View v){
-//                        Intent intendLoadFriend = new Intent(ProfileActivity.this, FriendsActivity.class);
-//                        ProfileActivity.this.startActivity(intendLoadFriend);
-//
-//                    }
+                // shelf button, take to shelf page
+                shelfBtn = findViewById(R.id.shelfButton);
+                // game button, take to game page
+                gamesBtn = findViewById(R.id.gameButton);
+                // genre button, take to genre page
+                genreBtn = findViewById(R.id.genreButton);
+                // friend button, take to friend page
+                friendBtn = findViewById(R.id.friendsButton);
+                // log button, take to log page
+                logBtn = (ImageButton) findViewById(R.id.addButton);
+                // home button, take to home page
+                homeBtn = (ImageButton) findViewById(R.id.homeButton);
+                logBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intentLoadNewAdd = new Intent(ProfileActivity.this, LogActivity.class);
+                        ProfileActivity.this.startActivity(intentLoadNewAdd);
+                    }
+                });
+                homeBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intentLoadNewHome = new Intent(ProfileActivity.this, MainActivity.class);
+                        ProfileActivity.this.startActivity(intentLoadNewHome);
+                    }
+                });
+                shelfBtn.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v){
+                        Intent intendLoadShelfs = new Intent(ProfileActivity.this, ShelfActivity.class);
+                        ProfileActivity.this.startActivity(intendLoadShelfs);
 
-//                });
+                    }
+                });
+                gamesBtn.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v){
+                        Intent intendLoadGames = new Intent(ProfileActivity.this, GamesActivity.class);
+                        ProfileActivity.this.startActivity(intendLoadGames);
+
+                    }
+                });
+                genreBtn.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v){
+                        Intent intendLoadGenre = new Intent(ProfileActivity.this, GenreActivity.class);
+                        ProfileActivity.this.startActivity(intendLoadGenre);
+
+                    }
+                });
+                friendBtn.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v){
+                        Intent intendLoadFriend = new Intent(ProfileActivity.this, FriendsActivity.class);
+                        ProfileActivity.this.startActivity(intendLoadFriend);
+
+                    }
+
+                });
             }
         });
     }
