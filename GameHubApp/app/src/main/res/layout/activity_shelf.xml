@@ -332,5 +332,35 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/fortnite" />
 
+    <Button
+        android:id="@+id/TopWithFriendsButton"
+        android:layout_width="22dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="358dp"
+        android:layout_marginTop="401dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="309dp"
+        android:background="#F7D256"
+        android:text=">"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/CurrentlyPlayingButton"
+        android:layout_width="22dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="360dp"
+        android:layout_marginTop="224dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="486dp"
+        android:background="#F7D256"
+        android:text=">"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>
