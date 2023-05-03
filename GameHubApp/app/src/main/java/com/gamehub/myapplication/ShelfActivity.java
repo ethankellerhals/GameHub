@@ -18,6 +18,10 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 public class ShelfActivity extends AppCompatActivity {
 
     ImageButton profileBtn;
@@ -26,12 +30,14 @@ public class ShelfActivity extends AppCompatActivity {
     Button gamesBtn;
     Button genreBtn;
     Button friendBtn;
+    public List<games> gamesList = new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shelf);
-
+        gamesList = (List<games>) getIntent().getSerializableExtra("gamesL");
         // after clicking the profile button, take to profile page
         profileBtn = (ImageButton) findViewById(R.id.profileButton);
         // game button, take to game page
@@ -50,6 +56,7 @@ public class ShelfActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intentLoadNewAdd = new Intent(ShelfActivity.this, LogActivity.class);
+                intentLoadNewAdd.putExtra("gamesL", (Serializable) gamesList);
                 ShelfActivity.this.startActivity(intentLoadNewAdd);
             }
         });
@@ -57,6 +64,7 @@ public class ShelfActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intentLoadNewActivity = new Intent(ShelfActivity.this, ProfileActivity.class);
+                intentLoadNewActivity.putExtra("gamesL", (Serializable) gamesList);
                 ShelfActivity.this.startActivity(intentLoadNewActivity);
             }
         });
@@ -64,21 +72,26 @@ public class ShelfActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intentLoadNewHome = new Intent(ShelfActivity.this, MainActivity.class);
+                intentLoadNewHome.putExtra("gamesL", (Serializable) gamesList);
                 ShelfActivity.this.startActivity(intentLoadNewHome);
             }
         });
+
         gamesBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intendLoadGames = new Intent(ShelfActivity.this, GamesActivity.class);
+                intendLoadGames.putExtra("gamesL", (Serializable) gamesList);
                 ShelfActivity.this.startActivity(intendLoadGames);
-
             }
         });
+
         genreBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intendLoadGenre = new Intent(ShelfActivity.this, GenreActivity.class);
+                intendLoadGenre.putExtra("gamesL", (Serializable) gamesList);
+
                 ShelfActivity.this.startActivity(intendLoadGenre);
 
             }
@@ -87,6 +100,8 @@ public class ShelfActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intendLoadFriend = new Intent(ShelfActivity.this, FriendsActivity.class);
+                intendLoadFriend.putExtra("gamesL", (Serializable) gamesList);
+
                 ShelfActivity.this.startActivity(intendLoadFriend);
 
             }

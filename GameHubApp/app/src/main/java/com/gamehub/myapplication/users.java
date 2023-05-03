@@ -9,14 +9,14 @@ public class users {
     private List<games> currentPlay;
     private List <games> havePlayed;
     private List <users> myFriends;
-    private String userEmail;
+
     // Not done * char
-    public users(Integer userID, String userName, String firstName,String password, String userEmail, List<games> currentPlay ,List<games> havePlayed, List<users> myFriends ){
+    public users(Integer userID, String userName, String firstName,String password, List<games> currentPlay ,List<games> havePlayed, List<users> myFriends ){
         this.userID = userID;
         this.userName = userName;
         this.password = password;
         this.firstName = firstName;
-        this.userEmail = userEmail;
+
         this.currentPlay = currentPlay;
         this.havePlayed = havePlayed;
         this.myFriends = myFriends;
@@ -36,10 +36,7 @@ public class users {
         this.firstName = firstName;
 
     }
-    public void setUserEmail(String userEmail){
-        this.userEmail = userEmail;
 
-    }
     public void setCurrentPlay(List<games> currentPlay){
         this.currentPlay = currentPlay;
     }
@@ -66,9 +63,6 @@ public class users {
     }
     public String getfirstName(){
         return this.firstName;
-    }
-    public String userEmail(){
-        return this.userEmail;
     }
     public String getPassword(){return this.password;
     }
