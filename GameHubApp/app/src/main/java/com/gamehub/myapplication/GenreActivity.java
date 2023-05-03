@@ -28,16 +28,19 @@ public class GenreActivity extends AppCompatActivity {
     private SearchController searchController;
 
 
-
+    public List<games> gamesList = new ArrayList<>();
+    public List<users> userList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_genre);
+        gamesList = (List<games>) getIntent().getSerializableExtra("gamesL");
+        userList = (List<users>) getIntent().getSerializableExtra("userL");
 
-        List<games> gamesList = new ArrayList<>();
-        List<users> usersList = new ArrayList<>();
-        searchController = new SearchController(gamesList, usersList);
+
+
+        searchController = new SearchController(gamesList, userList);
         RecyclerView recyclerView = findViewById(R.id.search_results_recyclerview);
         // after clicking the profile button, take to profile page
         profileBtn = (ImageButton) findViewById(R.id.profileButton);
@@ -54,12 +57,12 @@ public class GenreActivity extends AppCompatActivity {
 
         searchBar = findViewById(R.id.searchBarSearchView);
         List<SearchResult> dummyResults = new ArrayList<>();
-        dummyResults.add(new SearchResult("Ass", ResultType.GAME));
-        dummyResults.add(new SearchResult("money", ResultType.USER));
+        //dummyResults.add(new SearchResult("Ass", ResultType.GAME));
+        //dummyResults.add(new SearchResult("money", ResultType.USER));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        SearchResultsAdapter adapter = new SearchResultsAdapter(dummyResults);
+        //SearchResultsAdapter adapter = new SearchResultsAdapter(dummyResults);
 
-        //SearchResultsAdapter adapter = new SearchResultsAdapter(new ArrayList<>());
+        SearchResultsAdapter adapter = new SearchResultsAdapter(new ArrayList<>());
         recyclerView.setAdapter(adapter);
         searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
