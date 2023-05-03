@@ -3,6 +3,7 @@ package com.gamehub.myapplication;
 import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ import android.content.Intent;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -26,17 +28,19 @@ public class NewActivity extends AppCompatActivity {
     ImageButton profileBtn;
     ImageButton logBtn;
     ImageButton homeBtn;
-    Button shelfBtn;
-    Button gamesBtn;
-    Button genreBtn;
-    Button friendBtn;
-    Button sinUpBtn;
-    Button sinInBtn;
+
+    public Integer currIDCount = 1;
     Button saveUseBtn;
     EditText userNameText;
+    EditText userFirstName;
+    EditText userPassText;
     private List<users> userList = new ArrayList<>();
     public List<games> gamesList = new ArrayList<>();
     private List<String> tempGameList = new ArrayList<>();
+    public int generateID(){
+        return this.currIDCount++;
+    }
+
 
     public NewActivity(){
         this.userList = userList;
@@ -57,9 +61,9 @@ public class NewActivity extends AppCompatActivity {
 //    }
 
 
-    public users createUser(){
-        users newUser = new users(0 , "Jonnn", "Jon","abc123", "goins@yahoo.com", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
-        return newUser;
+    public void createUser(){
+        users newUser = new users(0 , "Jonnn", "Jon","abc123",  new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        userList.add(newUser);
     }
 
     @Override
@@ -68,16 +72,42 @@ public class NewActivity extends AppCompatActivity {
         setContentView(R.layout.newprofile);
         // after clicking the profile button, take to profile page
         profileBtn = (ImageButton) findViewById(R.id.profileButton);
+        setUserList(userList);
+        createUser();
         // log button, take to log page
         logBtn = (ImageButton) findViewById(R.id.addButton);
         // home button, take to home page
         homeBtn = (ImageButton) findViewById(R.id.homeButton);
-        createUser();
-        logBtn.setOnClickListener(new View.OnClickListener() {
+        userNameText = findViewById(R.id.user_name_edit);
+        userFirstName = findViewById(R.id.first_name_edit);
+        saveUseBtn = findViewById(R.id.save_button);
+        userPassText = findViewById(R.id.user_pass_edit);
+
+
+        saveUseBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentLoadNewAdd = new Intent(NewActivity.this, LogActivity.class);
-                NewActivity.this.startActivity(intentLoadNewAdd);
+                System.out.println(userList.size());
+                if (!TextUtils.isEmpty(userNameText.getText().toString()) && !TextUtils.isEmpty(userPassText.getText().toString())) {
+                    boolean nameTake = true;
+                    for (users using : userList) {
+
+                        if (userNameText.getText().toString().equals(using.getuserName())) {
+                            nameTake = false;
+                        }
+                    }
+                    if(nameTake){
+                        Toast.makeText(NewActivity.this, "Welcome " + userNameText.getText().toString(), Toast.LENGTH_SHORT).show();
+                        users newOne = new users(generateID(), userNameText.getText().toString() , userFirstName.getText().toString(),userPassText.getText().toString() , new ArrayList<>() , new ArrayList<>() , new ArrayList<>() );
+                        userList.add(newOne);
+                        Intent intentLoadNewAdd = new Intent(NewActivity.this, MainActivity.class);
+                        NewActivity.this.startActivity(intentLoadNewAdd);
+                    }
+                    else{
+                        Toast.makeText(NewActivity.this, "UserName Taken", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
             }
         });
         profileBtn.setOnClickListener(new View.OnClickListener() {
@@ -92,38 +122,6 @@ public class NewActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentLoadNewHome = new Intent(NewActivity.this, NewActivity.class);
                 NewActivity.this.startActivity(intentLoadNewHome);
-            }
-        });
-        shelfBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intendLoadShelfs = new Intent(NewActivity.this, ShelfActivity.class);
-                NewActivity.this.startActivity(intendLoadShelfs);
-
-            }
-        });
-        gamesBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intendLoadGames = new Intent(NewActivity.this, GamesActivity.class);
-                NewActivity.this.startActivity(intendLoadGames);
-            }
-        });
-
-        genreBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intendLoadGenre = new Intent(NewActivity.this, GenreActivity.class);
-                NewActivity.this.startActivity(intendLoadGenre);
-
-            }
-        });
-        friendBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                Intent intendLoadFriend = new Intent(NewActivity.this, FriendsActivity.class);
-                NewActivity.this.startActivity(intendLoadFriend);
-
             }
         });
 

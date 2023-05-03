@@ -11,6 +11,10 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 public class FriendsActivity extends AppCompatActivity {
 
     ImageButton profileBtn;
@@ -19,13 +23,14 @@ public class FriendsActivity extends AppCompatActivity {
     Button shelfBtn;
     Button gamesBtn;
     Button genreBtn;
+    public List<games> gamesList = new ArrayList<>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friends);
-
+        gamesList = (List<games>) getIntent().getSerializableExtra("gamesL");
         // after clicking the profile button, take to profile page
         profileBtn = (ImageButton) findViewById(R.id.profileButton);
         // shelf button, take to shelf page
@@ -39,10 +44,12 @@ public class FriendsActivity extends AppCompatActivity {
         // home button, take to home page
         homeBtn = (ImageButton) findViewById(R.id.homeButton);
 
+
         logBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentLoadNewAdd = new Intent(FriendsActivity.this, LogActivity.class);
+                intentLoadNewAdd.putExtra("gamesL", (Serializable) gamesList);
                 FriendsActivity.this.startActivity(intentLoadNewAdd);
             }
         });
@@ -50,6 +57,7 @@ public class FriendsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intentLoadNewActivity = new Intent(FriendsActivity.this, ProfileActivity.class);
+                intentLoadNewActivity.putExtra("gamesL", (Serializable) gamesList);
                 FriendsActivity.this.startActivity(intentLoadNewActivity);
             }
         });
@@ -57,6 +65,7 @@ public class FriendsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intentLoadNewHome = new Intent(FriendsActivity.this, MainActivity.class);
+                intentLoadNewHome.putExtra("gamesL", (Serializable) gamesList);
                 FriendsActivity.this.startActivity(intentLoadNewHome);
             }
         });
@@ -64,6 +73,8 @@ public class FriendsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intendLoadShelfs = new Intent(FriendsActivity.this, ShelfActivity.class);
+                intendLoadShelfs.putExtra("gamesL", (Serializable) gamesList);
+
                 FriendsActivity.this.startActivity(intendLoadShelfs);
 
             }
@@ -72,18 +83,22 @@ public class FriendsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intendLoadGames = new Intent(FriendsActivity.this, GamesActivity.class);
+                intendLoadGames.putExtra("gamesL", (Serializable) gamesList);
                 FriendsActivity.this.startActivity(intendLoadGames);
-
             }
         });
+
         genreBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 Intent intendLoadGenre = new Intent(FriendsActivity.this, GenreActivity.class);
+                intendLoadGenre.putExtra("gamesL", (Serializable) gamesList);
+
                 FriendsActivity.this.startActivity(intendLoadGenre);
 
             }
         });
+
 
         // write friends
 

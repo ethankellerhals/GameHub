@@ -2,6 +2,7 @@ package com.gamehub.myapplication;
 
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,29 +40,17 @@ public class GamesActivity extends AppCompatActivity {
     public int generateID(){
         return this.currIDCount++;
     }
+    public void rateGame(){
+
+    }
+//    public void removePlayed(){
+//        for(games game:gamesList){
+//            if()
+//        }
+//    }
     public void setgame() {
 
-        List<games> currList = new ArrayList<>();
-        try {
-            // Open the file from assets directory
-            InputStream inputStream = getAssets().open("gameDataset.csv");
 
-            // Read the contents of the file
-            Scanner scanner = new Scanner(inputStream);
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                String[] tokens = line.split(",");
-                    String title = tokens[1];
-                    String publisher = tokens[2];
-                    if (title != "Name"){
-                        currList.add(new games(generateID(), title, publisher, 0.0));
-                    }
-            }
-            System.out.println("curr "+currList.size());
-        } catch (IOException e) {
-            System.out.println("eerr");
-        }
-        gamesList = currList;
         TableLayout tableLayout = findViewById(R.id.allGamesTable);
         ScrollView scrollView = findViewById(R.id.tableScroll);
 //
@@ -114,6 +104,8 @@ public class GamesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_games);
+        gamesList = (List<games>) getIntent().getSerializableExtra("gamesL");
+
         setgame();
 //        TableLayout tableLayout = findViewById(R.id.allGamesTable);
 
@@ -142,6 +134,7 @@ public class GamesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intentLoadNewAdd = new Intent(GamesActivity.this, LogActivity.class);
+                intentLoadNewAdd.putExtra("gamesL",(Serializable) gamesList);
                 GamesActivity.this.startActivity(intentLoadNewAdd);
             }
         });
@@ -149,6 +142,7 @@ public class GamesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intentLoadNewActivity = new Intent(GamesActivity.this, ProfileActivity.class);
+                intentLoadNewActivity.putExtra("gamesL",(Serializable) gamesList);
                 GamesActivity.this.startActivity(intentLoadNewActivity);
             }
         });
@@ -156,6 +150,7 @@ public class GamesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intentLoadNewHome = new Intent(GamesActivity.this, MainActivity.class);
+                intentLoadNewHome.putExtra("gamesL",(Serializable) gamesList);
                 GamesActivity.this.startActivity(intentLoadNewHome);
             }
         });
@@ -163,6 +158,7 @@ public class GamesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intendLoadShelfs = new Intent(GamesActivity.this, ShelfActivity.class);
+                intendLoadShelfs.putExtra("gamesL",(Serializable) gamesList);
                 GamesActivity.this.startActivity(intendLoadShelfs);
 
             }
@@ -171,6 +167,7 @@ public class GamesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intendLoadGenre = new Intent(GamesActivity.this, GenreActivity.class);
+                intendLoadGenre.putExtra("gamesL",(Serializable) gamesList);
                 GamesActivity.this.startActivity(intendLoadGenre);
 
             }
@@ -179,6 +176,7 @@ public class GamesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent intendLoadFriend = new Intent(GamesActivity.this, FriendsActivity.class);
+                intendLoadFriend.putExtra("gamesL",(Serializable) gamesList);
                 GamesActivity.this.startActivity(intendLoadFriend);
 
             }
