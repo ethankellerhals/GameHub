@@ -49,9 +49,9 @@ public class ProfileActivity extends AppCompatActivity {
 
         users newU = createUser();
 
-        String profilePicturePath = loadProfilePicturePathFromStorage();
-        Bitmap profilePictureBitmap = BitmapFactory.decodeFile(profilePicturePath);
-        profilePictureImageView.setImageBitmap(profilePictureBitmap);
+        //String profilePicturePath = loadProfilePicturePathFromStorage();
+        //itmap profilePictureBitmap = BitmapFactory.decodeFile(profilePicturePath);
+        //profilePictureImageView.setImageBitmap(profilePictureBitmap);
         String username = loadUsernameFromStorage();
         usernameTextView.setText(newU.getuserName());
 //        String bio = loadBioFromStorage();

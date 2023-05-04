@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.SearchView;
@@ -20,6 +21,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
+import android.widget.TextView;
 
 
 public class GenreActivity extends AppCompatActivity {
@@ -37,6 +39,11 @@ public class GenreActivity extends AppCompatActivity {
     public List<games> gamesList = new ArrayList<>();
     public List<users> userList = new ArrayList<>();
 
+
+
+    private ImageView gameCoverPopup;
+    private TextView popUpTittle;
+    private TextView popUpRating;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,13 +84,36 @@ public class GenreActivity extends AppCompatActivity {
                 results.addAll(searchController.searchGames(query));
                 results.addAll(searchController.searchUsers(query));
                 adapter.setData(results);
-//
-//                if (!results.isEmpty()) {
-//                    SearchResult firstResult = results.get(0);
-//                    View popupView = LayoutInflater.from(GenreActivity.this).inflate(R.layout.popup_game, null);
-//                    PopupWindow popupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-//                    popupWindow.showAtLocation(searchBar, Gravity.CENTER, 0, 0);
-//                }
+
+                if (!results.isEmpty()) {
+                    SearchResult firstResult = results.get(0);
+                    View popupView = LayoutInflater.from(GenreActivity.this).inflate(R.layout.popup_game, null);
+                    PopupWindow popupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                    popupWindow.showAtLocation(searchBar, Gravity.CENTER, 0, 0);
+
+                    gameCoverPopup = popupView.findViewById(R.id.game_cover_popup);
+                    popUpTittle = popupView.findViewById(R.id.popUpTittle);
+                    popUpRating = popupView.findViewById(R.id.popUpRating);
+
+                    // Show the PopupWindow
+//                    popupWindow.showAtLocation(onQueryTextSubmit, Gravity.CENTER, 0, 0);
+
+                    // Set the image and text of the views
+                    gameCoverPopup.setImageResource(R.drawable.fortnite);
+                    popUpTittle.setText("Fortnite");
+                    popUpRating.setText("4.2");
+
+                    // get a reference to the Button and set its OnClickListener
+                    Button closeButton = popupView.findViewById(R.id.back_game_button);
+                    closeButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            // close the popup window
+                            popupWindow.dismiss();
+                        }
+                    });
+                }
+
 
                 Log.d("11", "1");
 //                SearchResultsAdapter adapter = new SearchResultsAdapter(results);
