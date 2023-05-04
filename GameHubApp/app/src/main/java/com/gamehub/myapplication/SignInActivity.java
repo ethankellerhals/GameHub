@@ -34,12 +34,14 @@ public class SignInActivity extends AppCompatActivity {
     Button saveUseBtn;
     EditText userNameText;
     EditText passWordText;
+    public Boolean isLogged;
     private List<users> userList = new ArrayList<>();
     public List<games> gamesList = new ArrayList<>();
     private List<String> tempGameList = new ArrayList<>();
 
     public SignInActivity(){
         this.userList = userList;
+        this.isLogged = false;
 
     }
     public void setUserList(List<users> userList){
@@ -89,7 +91,11 @@ public class SignInActivity extends AppCompatActivity {
                         System.out.println(using.getPassword());
                         if (userNameText.getText().toString().equals(using.getuserName()) && passWordText.getText().toString().equals(using.getPassword())) {
                             Toast.makeText(SignInActivity.this, "Welcome " + using.getuserName(), Toast.LENGTH_SHORT).show();
-
+                            isLogged = true;
+                            String use = userNameText.getText().toString();
+                            Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+                            intent.putExtra("EXTRA_MESSAGE", use);
+                            startActivity(intent);
                             Intent intentLoadNewAdd = new Intent(SignInActivity.this, MainActivity.class);
                             SignInActivity.this.startActivity(intentLoadNewAdd);
                             return;
@@ -108,20 +114,6 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
 
-        profileBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentLoadNewActivity = new Intent(SignInActivity.this, ProfileActivity.class);
-                SignInActivity.this.startActivity(intentLoadNewActivity);
-            }
-        });
-        homeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentLoadNewHome = new Intent(SignInActivity.this, NewActivity.class);
-                SignInActivity.this.startActivity(intentLoadNewHome);
-            }
-        });
 
 
     }

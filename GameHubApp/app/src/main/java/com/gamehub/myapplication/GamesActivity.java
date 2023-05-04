@@ -43,9 +43,9 @@ public class GamesActivity extends AppCompatActivity {
     public void rateGame(){
 
     }
-//    public void removePlayed(){
+//    public Boolean removePlayed(){
 //        for(games game:gamesList){
-//            if()
+//            if (game.getTitle() == )
 //        }
 //    }
     public void setgame() {
@@ -65,9 +65,9 @@ public class GamesActivity extends AppCompatActivity {
                 TableRow tableRow = new TableRow(this);
 
                 cardView.setLayoutParams(cardV.getLayoutParams());
-                cardView.setBottom(cardV.getBottom());
-                cardView.setId(cardV.getId());
-                cardView.setVisibility(cardV.getVisibility());
+                cardView.setBottom(cardView.getBottom());
+                cardView.setId(cardView.getId());
+                cardView.setVisibility(cardView.getVisibility());
                 TextView nameTextView = new TextView(this);
                 TextView pubTextView = new TextView(this);
                 TextView ratTextView = new TextView(this);
@@ -89,6 +89,11 @@ public class GamesActivity extends AppCompatActivity {
                     {
                         cardView.setVisibility(View.VISIBLE);
                         tableLayout.setVisibility(View.GONE);
+//                        if(playSw.isChecked()){
+//                            for(users user : userList){
+//                                if(user.getuserName() ==)
+//                            }
+//                        }
                     }
                 });
             }
@@ -181,6 +186,7 @@ public class GamesActivity extends AppCompatActivity {
 
             }
         });
+//        playSw.setOnClickListener(View v);
 
 
 

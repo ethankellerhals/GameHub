@@ -14,7 +14,7 @@ public class SearchController {
     public SearchController(List<games> gamesList, List<users> usersList) {
         this.gamesList = gamesList;
         this.usersList = usersList;
-        this.gameTitleSearch = new GameTitleSearch(gamesList);
+//        this.gameTitleSearch = new GameTitleSearch(gamesList);
         this.usernameSearch = new UsernameSearch(usersList);
     }
 
