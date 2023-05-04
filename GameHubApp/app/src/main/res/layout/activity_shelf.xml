@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3b3b3b">
+
+
+    <View
+        android:id="@+id/top_play_bg"
+        android:layout_width="372dp"
+        android:layout_height="117dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="386dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="228dp"
+        android:background="@drawable/rounded_corners"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/top_play_R6Sedge"
+        android:layout_width="71dp"
+        android:layout_height="89dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginEnd="270dp"
+        android:layout_marginBottom="242dp"
+        android:background="@drawable/rounded_corners"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rainbowsix" />
+
+    <ImageButton
+        android:id="@+id/top_play_as"
+        android:layout_width="71dp"
+        android:layout_height="89dp"
+        android:layout_marginStart="171dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginEnd="169dp"
+        android:layout_marginBottom="242dp"
+        android:background="@drawable/rounded_corners"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/assassin_mir" />
+
+    <ImageButton
+        android:id="@+id/top_play_csgo"
+        android:layout_width="71dp"
+        android:layout_height="89dp"
+        android:layout_marginStart="270dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginBottom="242dp"
+        android:background="@drawable/rounded_corners"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/csgo" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="381dp"
+        android:layout_height="69dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="607dp"
+        android:background="@drawable/top_bar_shelf"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/gameButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="73dp"
+        android:layout_marginBottom="610dp"
+        android:backgroundTint="@color/white"
+        android:text="Games"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/genreButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/genreButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="73dp"
+        android:layout_marginBottom="610dp"
+        android:backgroundTint="@color/white"
+        android:text="Genre"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/friendsButton"
+        app:layout_constraintStart_toEndOf="@+id/gameButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/friendsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="73dp"
+        android:layout_marginBottom="610dp"
+        android:backgroundTint="@color/white"
+        android:text="Friends"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/shelfButton"
+        app:layout_constraintStart_toEndOf="@+id/genreButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/shelfButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="73dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="610dp"
+        android:backgroundTint="#f8d356"
+        android:text="Shelf"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/friendsButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <View
+        android:id="@+id/Currently_Playing_line"
+        android:layout_width="335dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="38dp"
+
+        android:layout_marginTop="187dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="122dp"
+        android:background="#f8d356"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/Currently_Playing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="271dp"
+        android:text="Currently Playing"
+        android:textColor="#f8d356"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <View
+        android:id="@+id/top_with_friendsr_line"
+        android:layout_width="335dp"
+        android:layout_height="1dp"
+
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="365dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="365dp"
+        android:background="#f8d356"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/top_with_friendsr"
+        android:layout_width="wrap_content"
+        android:layout_height="19dp"
+        android:layout_marginStart="37dp"
+
+        android:layout_marginTop="346dp"
+        android:layout_marginEnd="271dp"
+        android:layout_marginBottom="366dp"
+        android:text="Top with Friends"
+        android:textColor="#f8d356"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="411dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="474dp"
+        android:background="#445566"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="175dp"
+        android:layout_height="165dp"
+        android:background="@drawable/circle_backgroud"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.972" />
+
+    <ImageButton
+        android:id="@+id/addButton"
+        android:layout_width="127dp"
+        android:layout_height="133dp"
+        android:background="@drawable/green_log"
+        android:contentDescription="Add"
+        app:layout_constraintBottom_toBottomOf="@+id/view4"
+        app:layout_constraintEnd_toEndOf="@+id/view4"
+        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintTop_toTopOf="@+id/view4"
+        app:layout_constraintVertical_bias="0.666" />
+
+    <ImageButton
+        android:id="@+id/homeButton"
+        android:layout_width="51dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="303dp"
+        android:background="@drawable/home"
+        android:contentDescription="Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.527" />
+
+    <ImageButton
+        android:id="@+id/profileButton"
+        android:layout_width="94dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/profile"
+        android:contentDescription="Profile"
+        android:onClick="viewProfile"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.8" />
+
+    <View
+        android:id="@+id/curr_play_bg"
+        android:layout_width="373dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="208dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="403dp"
+        android:background="@drawable/rounded_corners"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/curr_play_minecraft"
+        android:layout_width="71dp"
+        android:layout_height="89dp"
+        android:layout_marginStart="269dp"
+        android:layout_marginTop="224dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginBottom="418dp"
+        android:background="@drawable/rounded_corners"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/minecraft" />
+
+    <ImageButton
+        android:id="@+id/curr_play_bo2"
+        android:layout_width="71dp"
+        android:layout_height="89dp"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="224dp"
+        android:layout_marginEnd="170dp"
+        android:layout_marginBottom="418dp"
+        android:background="@drawable/rounded_corners"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bo2" />
+
+    <ImageButton
+        android:id="@+id/curr_play_fortnite"
+        android:layout_width="71dp"
+        android:layout_height="89dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="224dp"
+        android:layout_marginEnd="271dp"
+        android:layout_marginBottom="418dp"
+        android:background="@drawable/rounded_corners"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/fortnite" />
+
+    <Button
+        android:id="@+id/TopWithFriendsButton"
+        android:layout_width="22dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="358dp"
+        android:layout_marginTop="401dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="309dp"
+        android:background="#F7D256"
+        android:text=">"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/CurrentlyPlayingButton"
+        android:layout_width="22dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="360dp"
+        android:layout_marginTop="224dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="486dp"
+        android:background="#F7D256"
+        android:text=">"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#383b40"
+    tools:layout_editor_absoluteX="155dp"
+    tools:layout_editor_absoluteY="-3dp">
+
+
+    <ImageView
+        android:id="@+id/rainbow_friend1"
+        android:layout_width="82dp"
+        android:layout_height="109dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="474dp"
+        android:layout_marginEnd="269dp"
+        android:layout_marginBottom="185dp"
+        android:background="@drawable/batfei"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.486" />
+
+    <ImageView
+        android:id="@+id/minecraft_friend1"
+        android:layout_width="82dp"
+        android:layout_height="109dp"
+        android:layout_marginStart="216dp"
+        android:layout_marginTop="456dp"
+        android:layout_marginEnd="113dp"
+        android:layout_marginBottom="166dp"
+        android:background="@drawable/minecraft"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/fortnite_friend1"
+        android:layout_width="82dp"
+        android:layout_height="109dp"
+        android:layout_marginTop="590dp"
+        android:layout_marginEnd="113dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/roblox"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/cod2_friend1"
+        android:layout_width="82dp"
+        android:layout_height="109dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="590dp"
+        android:layout_marginEnd="263dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/xdefi"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/infoTextView"
+        android:layout_width="279dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="417dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginBottom="283dp"
+        android:text="TextView"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="228dp"
+        android:layout_height="237dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="131dp"
+        android:layout_marginEnd="113dp"
+        android:layout_marginBottom="363dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile3" />
+
+    <Button
+        android:id="@+id/closeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="307dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="667dp"
+        android:text="Close"
+        android:background="#ec8c92"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>
+
+
