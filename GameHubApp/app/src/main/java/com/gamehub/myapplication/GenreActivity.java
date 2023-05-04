@@ -8,6 +8,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.SearchView;
 
 import java.sql.Array;
@@ -15,6 +17,10 @@ import java.util.List;
 import java.util.ArrayList;
 //import
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.support.v7.app.AlertDialog;
+import android.view.Gravity;
+
 
 public class GenreActivity extends AppCompatActivity {
 
@@ -71,6 +77,14 @@ public class GenreActivity extends AppCompatActivity {
                 results.addAll(searchController.searchGames(query));
                 results.addAll(searchController.searchUsers(query));
                 adapter.setData(results);
+//
+//                if (!results.isEmpty()) {
+//                    SearchResult firstResult = results.get(0);
+//                    View popupView = LayoutInflater.from(GenreActivity.this).inflate(R.layout.popup_game, null);
+//                    PopupWindow popupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+//                    popupWindow.showAtLocation(searchBar, Gravity.CENTER, 0, 0);
+//                }
+
                 Log.d("11", "1");
 //                SearchResultsAdapter adapter = new SearchResultsAdapter(results);
 //                recyclerView.setAdapter(adapter);
@@ -138,5 +152,6 @@ public class GenreActivity extends AppCompatActivity {
 
 
     }
+
 
 }
