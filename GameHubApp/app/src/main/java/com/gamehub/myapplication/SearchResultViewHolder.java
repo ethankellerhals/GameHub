@@ -2,6 +2,7 @@ package com.gamehub.myapplication;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 import android.view.View;
+
 import java.util.List;
 public class SearchResultViewHolder extends RecyclerView.ViewHolder {
     public TextView titleTextView;
@@ -31,3 +32,4 @@ public class SearchResultViewHolder extends RecyclerView.ViewHolder {
 
     }
 }
+

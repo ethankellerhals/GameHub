@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -15,7 +16,9 @@ import android.widget.Switch;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
@@ -92,7 +95,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (userList.size() > 0) {
+            // Write data to file
+            try {
+                String filename = "user_logs.txt";
+                File file = new File(getExternalFilesDir(null), filename);
+                FileWriter writer = new FileWriter(file, true);
+                writer.write("Username,Firstname,Password, Current, Played, Friends\n");
+                for (users user : userList) {
+                    String line = String.format("%s,%s,%s\n", user.getuserName(), user.getfirstName(), user.getPassword(), user.getCurrentPlay(), user.getHavePlayed(),user.getMyFriends());
+                    writer.write(line);
+                }
+                writer.flush();
+                writer.close();
+                Toast.makeText(getApplicationContext(), "File saved at " + file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+            } catch (IOException e) {
+                e.printStackTrace();
+                Toast.makeText(getApplicationContext(), "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentLoadNewAdd = new Intent(MainActivity.this, LogActivity.class);
                 intentLoadNewAdd.putExtra("gamesL", (Serializable) gamesList);
+
                 MainActivity.this.startActivity(intentLoadNewAdd);
             }
         });
@@ -177,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intendLoadFriend = new Intent(MainActivity.this, FriendsActivity.class);
                 intendLoadFriend.putExtra("gamesL", (Serializable) gamesList);
-
+//                intentLoadNewAdd.putExtra("isLogged", (Serializable) gamesList);
                 MainActivity.this.startActivity(intendLoadFriend);
 
             }

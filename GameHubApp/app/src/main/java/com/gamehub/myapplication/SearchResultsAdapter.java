@@ -1,3 +1,4 @@
+
 package com.gamehub.myapplication;
 
 import android.util.Log;
@@ -75,3 +76,4 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<SearchResultsAdap
 
 
 }
+
