@@ -38,7 +38,7 @@ public class GenreActivity extends AppCompatActivity {
         List<games> gamesList = new ArrayList<>();
         List<users> usersList = new ArrayList<>();
         searchController = new SearchController(gamesList, usersList);
-        RecyclerView recyclerView = findViewById(R.id.search_results_recyclerview);
+//        RecyclerView recyclerView = findViewById(R.id.search_results_recyclerview);
         // after clicking the profile button, take to profile page
         profileBtn = (ImageButton) findViewById(R.id.profileButton);
         // shelf button, take to shelf page
@@ -52,22 +52,22 @@ public class GenreActivity extends AppCompatActivity {
         // home button, take to home page
         homeBtn = (ImageButton) findViewById(R.id.homeButton);
 
-        searchBar = findViewById(R.id.searchBarSearchView);
+//        searchBar = findViewById(R.id.searchBarSearchView);
         List<SearchResult> dummyResults = new ArrayList<>();
         dummyResults.add(new SearchResult("Ass", ResultType.GAME));
         dummyResults.add(new SearchResult("money", ResultType.USER));
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        SearchResultsAdapter adapter = new SearchResultsAdapter(dummyResults);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        SearchResultsAdapter adapter = new SearchResultsAdapter(dummyResults);
 
         //SearchResultsAdapter adapter = new SearchResultsAdapter(new ArrayList<>());
-        recyclerView.setAdapter(adapter);
+//        recyclerView.setAdapter(adapter);
         searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 List<SearchResult> results = new ArrayList<>();
                 results.addAll(searchController.searchGames(query));
                 results.addAll(searchController.searchUsers(query));
-                adapter.setData(results);
+//                adapter.setData(results);
                 Log.d("11", "1");
 //                SearchResultsAdapter adapter = new SearchResultsAdapter(results);
 //                recyclerView.setAdapter(adapter);
@@ -80,7 +80,7 @@ public class GenreActivity extends AppCompatActivity {
                 results.addAll(searchController.searchUsers(newText));
 //                SearchResultsAdapter adapter = new SearchResultsAdapter(results);
 //                recyclerView.setAdapter(adapter);
-                adapter.setData(results);
+//                adapter.setData(results);
                 Log.d("1", "111");
                 return true;
             }
