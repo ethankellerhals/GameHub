@@ -1,6 +1,7 @@
 # GameHub
 
 **CSCI 4448 Project by Ethan Kellerhals, Jon Goins, and Adrian Ornelas Ruvalcaba**
+** "Adrian" Is our default branch **
 Resources in project 7 pdf* ** Live Demo titled Demo***
 
 This project uses a Pixel 6 running Android Oreo API 27
