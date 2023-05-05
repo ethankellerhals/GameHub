@@ -51,8 +51,25 @@ public class GamesActivity extends AppCompatActivity {
     public void rateGame(){
 
     }
-
-    // referance
+    public GamesActivity(){
+        this.userList = new ArrayList<>();
+    }
+    public void setUserList(List<users> userList){
+        this.userList = userList;
+    }
+    public void setGamesList(List<games> gamesList){
+        this.gamesList = gamesList;
+    }
+    public void setCurrUser(String currUser){
+        this.currUser = currUser;
+    }
+    public List<users> getUserList(){
+        return this.userList;
+    }
+    public List<games> getGamesList(){
+        return this.gamesList;
+    }
+    // reference
     // https://developer.android.com/reference/android/widget/TableLayout
     // https://developer.android.com/reference/android/widget/TableRow
     // https://developer.android.com/reference/android/view/View
@@ -93,7 +110,7 @@ public class GamesActivity extends AppCompatActivity {
         tableLayout.setDividerDrawable(dividerDrawable);
         tableLayout.setShowDividers(TableLayout.SHOW_DIVIDER_MIDDLE);
 
-        if (!gamesList.isEmpty()) {
+        if (gamesList != null && !gamesList.isEmpty()) {
             for (int i = 0; i < gamesList.size(); i++) {
                 final games tee = gamesList.get(i);
                 // new row
@@ -153,10 +170,11 @@ public class GamesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        gamesList = (List<games>) getIntent().getSerializableExtra("gamesL");
-        userList = (List<users>) getIntent().getSerializableExtra("isLogged");
-        currUser = getIntent().getStringExtra("EXTRA_MESSAGE");
         setContentView(R.layout.activity_games);
+        setGamesList((List<games>) getIntent().getSerializableExtra("gamesL"));
+        setUserList((List<users>) getIntent().getSerializableExtra("isLogged"));
+        setCurrUser(getIntent().getStringExtra("EXTRA_MESSAGE"));
+
 
         setgame();
 //        TableLayout tableLayout = findViewById(R.id.allGamesTable);
