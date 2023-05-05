@@ -104,9 +104,9 @@ public class GenreActivity extends AppCompatActivity {
 //                    popupWindow.showAtLocation(onQueryTextSubmit, Gravity.CENTER, 0, 0);
 
                     // Set the image and text of the views
-                    gameCoverPopup.setImageResource(R.drawable.fortnite);
-                    popUpTittle.setText("Fortnite");
-                    popUpRating.setText("4.2");
+                    gameCoverPopup.setImageResource(R.drawable.wiisports);
+                    popUpTittle.setText("Title: Wii Sports");
+                    popUpRating.setText("Rating: 5.0");
 
                     // get a reference to the Button and set its OnClickListener
                     Button closeButton = popupView.findViewById(R.id.back_game_button);
