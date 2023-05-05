@@ -1,6 +1,8 @@
 # GameHub
 
 **CSCI 4448 Project by Ethan Kellerhals, Jon Goins, and Adrian Ornelas Ruvalcaba**
+**Sources in project 7 pdf***
+** Live Demo titled Demo***
 
 GameHub is an android application that primarily focuses on reviewing and rating video games while also utilizing social media aspects to build a community in the gaming industry. This application that is coded entirely using the android studio gui. The languages are composed of entirely java which is an OO language that allows different design patterns to be utilized. 
 
