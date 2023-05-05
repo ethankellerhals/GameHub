@@ -46,10 +46,10 @@ public class ProfileActivity extends AppCompatActivity {
         //bioTextView = findViewById(R.id.bio);
 
         users newU = createUser();
-
-        String profilePicturePath = loadProfilePicturePathFromStorage();
-        Bitmap profilePictureBitmap = BitmapFactory.decodeFile(profilePicturePath);
-        profilePictureImageView.setImageBitmap(profilePictureBitmap);
+        profilePictureImageView.setImageResource(R.drawable.default_profilepicture);
+//        String profilePicturePath = loadProfilePicturePathFromStorage();
+//        Bitmap profilePictureBitmap = BitmapFactory.decodeFile(profilePicturePath);
+//        profilePictureImageView.setImageBitmap(profilePictureBitmap);
         String username = loadUsernameFromStorage();
         usernameTextView.setText(newU.getuserName());
 //        String bio = loadBioFromStorage();

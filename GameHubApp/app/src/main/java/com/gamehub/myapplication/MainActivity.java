@@ -190,6 +190,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intendLoadGenre = new Intent(MainActivity.this, GenreActivity.class);
                 intendLoadGenre.putExtra("gamesL", (Serializable) gamesList);
+                intendLoadGenre.putExtra("userL", (Serializable) userList);
 
                 MainActivity.this.startActivity(intendLoadGenre);
 
