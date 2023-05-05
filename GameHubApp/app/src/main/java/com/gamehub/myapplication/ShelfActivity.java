@@ -30,7 +30,7 @@ public class ShelfActivity extends AppCompatActivity {
     Button gamesBtn;
     Button genreBtn;
     Button friendBtn;
-    public List<games> gamesList = new ArrayList<>();
+    public List<games> gamesList ;
 
 
     @Override

@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
         return this.currIDCount++;
     }
     public MainActivity(){
-        this.userList = new ArrayList<>();
-        this.gamesList = new ArrayList<>();
+//        this.userList = new ArrayList<>();
+//        this.gamesList = new ArrayList<>();
     }
     public void setUserList(List<users> userList){
         this.userList = userList;

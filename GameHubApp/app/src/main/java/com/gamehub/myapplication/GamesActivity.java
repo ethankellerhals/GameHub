@@ -40,8 +40,8 @@ public class GamesActivity extends AppCompatActivity {
     Switch playSw;
     public String currUser;
 
-    private List<users> userList = new ArrayList<>();
-    public List<games> gamesList = new ArrayList<>();
+    private List<users> userList;
+    public List<games> gamesList;
     public List<users> tempFriendList = new ArrayList<>();
     public List<games> tempGameList = new ArrayList<>();
     public Integer currIDCount = 1;
@@ -51,9 +51,10 @@ public class GamesActivity extends AppCompatActivity {
     public void rateGame(){
 
     }
-    public GamesActivity(){
-        this.userList = new ArrayList<>();
-    }
+//    public GamesActivity(){
+//        this.userList = userList;
+//        this.gamesList = gamesList;
+//    }
     public void setUserList(List<users> userList){
         this.userList = userList;
     }
@@ -84,6 +85,8 @@ public class GamesActivity extends AppCompatActivity {
         TextView titl = findViewById(R.id.titleTextView);
         TextView publ = findViewById(R.id.publisherTextView);
         TextView ratl = findViewById(R.id.ratingTextView);
+        games RainbowSixSiedge = new games(88, "Rainbow Six Siedge", "Ubisoft", 3.0, new ArrayList<>(),new ArrayList<>());
+        gamesList.add(RainbowSixSiedge);
 
 
         // padding and margins for the table
