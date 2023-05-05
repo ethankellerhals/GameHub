@@ -43,7 +43,9 @@ public class SignInActivity extends AppCompatActivity {
 
 
     public SignInActivity(){
-        this.userList = userList;
+        this.userList = new ArrayList<>();
+        this.gamesList = new ArrayList<>();
+
         this.isLogged = false;
         this.currUser = currUser;
 
@@ -58,7 +60,7 @@ public class SignInActivity extends AppCompatActivity {
 
 
     public void createUser(){
-        users newUser = new users(0 , "Jonnn", "Jon","abc123", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        users newUser = new users(0 , "a", "Jon","b", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         userList.add(newUser);
         users newUser2 = new users(0 , "Jon", "Jon","abc", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         tempFriendList.add(newUser2);
@@ -103,8 +105,8 @@ public class SignInActivity extends AppCompatActivity {
                             Intent intent = new Intent(SignInActivity.this, MainActivity.class);
                             intent.putExtra("EXTRA_MESSAGE", use);
                             startActivity(intent);
-//                            Intent intentLoadNewAdd = new Intent(SignInActivity.this, MainActivity.class);
-//                            SignInActivity.this.startActivity(intentLoadNewAdd);
+                            Intent intentLoadNewAdd = new Intent(SignInActivity.this, MainActivity.class);
+                            SignInActivity.this.startActivity(intentLoadNewAdd);
                             return;
                         }
                     }

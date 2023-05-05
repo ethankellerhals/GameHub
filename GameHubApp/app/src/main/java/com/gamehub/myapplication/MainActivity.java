@@ -49,9 +49,8 @@ public class MainActivity extends AppCompatActivity {
         return this.currIDCount++;
     }
     public MainActivity(){
-        this.userList = userList;
-//        this.tempGameList = setgame(tempGameList);
-//        this.gamesList = createGame();
+        this.userList = new ArrayList<>();
+        this.gamesList = new ArrayList<>();
     }
     public void setUserList(List<users> userList){
         this.userList = userList;
@@ -132,11 +131,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         setgame(getApplicationContext());
 
-        gamesList = (List<games>) getIntent().getSerializableExtra("gamesL");
-        userList = (List<users>) getIntent().getSerializableExtra("isLogged");
+        setGamesList((List<games>) getIntent().getSerializableExtra("gamesL"));
+        setUserList((List<users>) getIntent().getSerializableExtra("isLogged"));
+//        userList= (List<users>) getIntent().getSerializableExtra("isLogged");
         currUser = getIntent().getStringExtra("EXTRA_MESSAGE");
 
-        createUser();
+//        createUser();
         // after clicking the profile button, take to profile page
         profileBtn = (ImageButton) findViewById(R.id.profileButton);
         // shelf button, take to shelf page
