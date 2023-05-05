@@ -17,10 +17,6 @@ import android.graphics.BitmapFactory;
 import android.widget.Button;
 import android.provider.MediaStore;
 
-import android.database.Cursor;
-import java.util.List;
-import java.util.Arrays;
-
 public class EditProfileActivity extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST_CODE = 1;
@@ -31,18 +27,6 @@ public class EditProfileActivity extends AppCompatActivity {
     private String profilePicturePath;
     private String username;
     private String bio;
-
-    private List<Integer> profilePictureList = Arrays.asList(
-            R.drawable.default_profilepicture_1,
-            R.drawable.default_profilepicture_2,
-            R.drawable.default_profilepicture_3,
-            R.drawable.default_profilepicture_4,
-            R.drawable.default_profilepicture_5,
-            R.drawable.default_profilepicture_6,
-            R.drawable.default_profilepicture_7,
-            R.drawable.default_profilepicture_8,
-            R.drawable.default_profilepicture_9,
-            R.drawable.default_profilepicture_10);
 
 //    TextView profilePic, editUsername;
 //    Uri imageUri;
