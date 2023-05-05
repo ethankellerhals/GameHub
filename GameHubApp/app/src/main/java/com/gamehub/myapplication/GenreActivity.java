@@ -52,7 +52,7 @@ public class GenreActivity extends AppCompatActivity {
         // home button, take to home page
         homeBtn = (ImageButton) findViewById(R.id.homeButton);
 
-        searchBar = findViewById(R.id.searchBarSearchView);
+//        searchBar = findViewById(R.id.searchBarSearchView);
         List<SearchResult> dummyResults = new ArrayList<>();
         dummyResults.add(new SearchResult("Ass", ResultType.GAME));
         dummyResults.add(new SearchResult("money", ResultType.USER));
@@ -79,8 +79,8 @@ public class GenreActivity extends AppCompatActivity {
                 results.addAll(searchController.searchGames(newText));
                 results.addAll(searchController.searchUsers(newText));
 //                SearchResultsAdapter adapter = new SearchResultsAdapter(results);
-                recyclerView.setAdapter(adapter);
-                adapter.setData(results);
+//                recyclerView.setAdapter(adapter);
+//                adapter.setData(results);
                 Log.d("1", "111");
                 return true;
             }
