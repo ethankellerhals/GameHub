@@ -17,7 +17,8 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 
 public class ProfileActivity extends AppCompatActivity {
-
+    // INSPIRATION FOR THIS FUNCTION:
+    // https://www.geeksforgeeks.org/implementing-edit-profile-data-functionality-in-social-media-android-app/#
     ImageButton logBtn;
     ImageButton homeBtn;
     Button shelfBtn;
@@ -62,19 +63,6 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentLoadNewActivity = new Intent(ProfileActivity.this, EditProfileActivity.class);
                 ProfileActivity.this.startActivity(intentLoadNewActivity);
-
-//
-//                LayoutInflater inflater = getLayoutInflater();
-//
-//                View customizeFormView = getLayoutInflater().inflate(R.layout.activity_edit_profile, null);
-//                ViewGroup parent = (ViewGroup) findViewById(android.R.id.content);
-//                parent.removeAllViews();
-//                parent.addView(editFormView);
-//
-//                AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
-//                build.setView(editFormView);
-//                builder.create().show();
-
 
                 Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
                 startActivityForResult(intent, EDIT_PROFILE_REQUEST_CODE);

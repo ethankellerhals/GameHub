@@ -71,12 +71,11 @@ public class GenreActivity extends AppCompatActivity {
         homeBtn = (ImageButton) findViewById(R.id.homeButton);
 
         searchBar = findViewById(R.id.searchBarSearchView);
-        List<SearchResult> dummyResults = new ArrayList<>();
 
-        //dummyResults.add(new SearchResult("Ass", ResultType.GAME));
-        //dummyResults.add(new SearchResult("money", ResultType.USER));
+        // SEARCH FUNCTION RESOURCE:
+        // https://github.com/xaverkapeller/Searchable-RecyclerView-Demo
+        // https://stackoverflow.com/questions/30398247/how-to-filter-a-recyclerview-with-a-searchview
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //SearchResultsAdapter adapter = new SearchResultsAdapter(dummyResults);
 
         SearchResultsAdapter adapter = new SearchResultsAdapter(new ArrayList<>());
         recyclerView.setAdapter(adapter);
@@ -101,7 +100,6 @@ public class GenreActivity extends AppCompatActivity {
                     popUpRating = popupView.findViewById(R.id.popUpRating);
 
                     // Show the PopupWindow
-//                    popupWindow.showAtLocation(onQueryTextSubmit, Gravity.CENTER, 0, 0);
 
                     // Set the image and text of the views
                     gameCoverPopup.setImageResource(R.drawable.wiisports);
@@ -118,12 +116,6 @@ public class GenreActivity extends AppCompatActivity {
                         }
                     });
                 }
-
-
-
-                Log.d("11", "1");
-//                SearchResultsAdapter adapter = new SearchResultsAdapter(results);
-//                recyclerView.setAdapter(adapter);
                 return true;
             }
             @Override
@@ -131,10 +123,9 @@ public class GenreActivity extends AppCompatActivity {
                 List<SearchResult> results = new ArrayList<>();
                 results.addAll(searchController.searchGames(newText));
                 results.addAll(searchController.searchUsers(newText));
-//                SearchResultsAdapter adapter = new SearchResultsAdapter(results);
                 recyclerView.setAdapter(adapter);
                 adapter.setData(results);
-                Log.d("1", "111");
+
                 return true;
             }
         });
@@ -185,7 +176,6 @@ public class GenreActivity extends AppCompatActivity {
             }
         });
 
-    //comment
 
     }
 
