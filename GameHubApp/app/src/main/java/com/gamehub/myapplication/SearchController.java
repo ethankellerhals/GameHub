@@ -3,19 +3,21 @@ import java.util.List;
 import java.util.ArrayList;
 public class SearchController {
     //private SearchInterface searchInterface;
-    private List<games> gamesList;
-    private List<users> usersList;
+    public List<games> gamesList;
+    public List<users> userList;
     private SearchInterface gameTitleSearch;
     private SearchInterface usernameSearch;
 //    public void setSearchInterface(SearchInterface searchInterface) {
 //        this.searchInterface = searchInterface;
 //    }
 
-    public SearchController(List<games> gamesList, List<users> usersList) {
+    public SearchController(List<games> gamesList, List<users> userList) {
         this.gamesList = gamesList;
-        this.usersList = usersList;
-//        this.gameTitleSearch = new GameTitleSearch(gamesList);
-        this.usernameSearch = new UsernameSearch(usersList);
+
+        this.userList = userList;
+        this.gameTitleSearch = new GameTitleSearch(gamesList);
+        this.usernameSearch = new UsernameSearch(userList);
+
     }
 
     public List<SearchResult> searchGames(String searchTerm) {

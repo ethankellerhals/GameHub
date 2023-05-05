@@ -16,7 +16,9 @@ import android.widget.EditText;
 import android.graphics.BitmapFactory;
 import android.widget.Button;
 import android.provider.MediaStore;
-
+import android.database.Cursor;
+import java.util.List;
+import java.util.Arrays;
 public class EditProfileActivity extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST_CODE = 1;
@@ -27,6 +29,18 @@ public class EditProfileActivity extends AppCompatActivity {
     private String profilePicturePath;
     private String username;
     private String bio;
+
+    private List<Integer> profilePictureList = Arrays.asList(
+            R.drawable.default_profilepicture_1,
+            R.drawable.default_profilepicture_2,
+            R.drawable.default_profilepicture_3,
+            R.drawable.default_profilepicture_4,
+            R.drawable.default_profilepicture_5,
+            R.drawable.default_profilepicture_6,
+            R.drawable.default_profilepicture_7,
+            R.drawable.default_profilepicture_8,
+            R.drawable.default_profilepicture_9,
+            R.drawable.default_profilepicture_10);
 
 //    TextView profilePic, editUsername;
 //    Uri imageUri;
@@ -90,13 +104,21 @@ public class EditProfileActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_REQUEST_CODE && resultCode == RESULT_OK) {
             Uri selectedImageUri = data.getData();
-            // profilePicturePath = getRealPathFromUri(selectedImageUri);
-            profilePicturePath = loadProfilePicturePathFromStorage();
+            profilePicturePath = getRealPathFromUri(selectedImageUri);
+            //profilePicturePath = loadProfilePicturePathFromStorage();
             Bitmap profilePictureBitmap = BitmapFactory.decodeFile(profilePicturePath);
             profilePictureImageView.setImageBitmap(profilePictureBitmap);
         }
     }
-
+    private String getRealPathFromUri(Uri uri) {
+        String[] projection = { MediaStore.Images.Media.DATA};
+        Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        String filePath = cursor.getString(column_index);
+        cursor.close();
+        return filePath;
+    }
     private String loadProfilePicturePathFromStorage() {
         SharedPreferences preferences = getSharedPreferences("profile", MODE_PRIVATE);
         return preferences.getString("profile_picture_path", "");
