@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.graphics.BitmapFactory;
 import android.widget.Button;
 import android.provider.MediaStore;
+import android.database.Cursor;
 
 public class EditProfileActivity extends AppCompatActivity {
 
@@ -90,13 +91,21 @@ public class EditProfileActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_REQUEST_CODE && resultCode == RESULT_OK) {
             Uri selectedImageUri = data.getData();
-            // profilePicturePath = getRealPathFromUri(selectedImageUri);
-            profilePicturePath = loadProfilePicturePathFromStorage();
+            profilePicturePath = getRealPathFromUri(selectedImageUri);
+            //profilePicturePath = loadProfilePicturePathFromStorage();
             Bitmap profilePictureBitmap = BitmapFactory.decodeFile(profilePicturePath);
             profilePictureImageView.setImageBitmap(profilePictureBitmap);
         }
     }
-
+    private String getRealPathFromUri(Uri uri) {
+        String[] projection = { MediaStore.Images.Media.DATA};
+        Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        String filePath = cursor.getString(column_index);
+        cursor.close();
+        return filePath;
+    }
     private String loadProfilePicturePathFromStorage() {
         SharedPreferences preferences = getSharedPreferences("profile", MODE_PRIVATE);
         return preferences.getString("profile_picture_path", "");

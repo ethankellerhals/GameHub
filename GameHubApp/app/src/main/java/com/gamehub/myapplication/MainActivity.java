@@ -39,9 +39,8 @@ public class MainActivity extends AppCompatActivity {
     Button genreBtn;
     Button friendBtn;
     public Integer currIDCount = 1;
-    public Boolean isLogged;
-    public String currUser;
 
+    public String currUser;
 
     public List<users> userList = new ArrayList<>();
     public List<games> gamesList = new ArrayList<>();
@@ -68,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public users createUser(){
+
         users newUser = new users(0 , "Jonnn", "Jon","abc123", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         userList.add(newUser);
         users newUser2 = new users(0 , "Jon", "Jon","abc", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
@@ -131,9 +131,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setgame(getApplicationContext());
+
         gamesList = (List<games>) getIntent().getSerializableExtra("gamesL");
         userList = (List<users>) getIntent().getSerializableExtra("isLogged");
         currUser = getIntent().getStringExtra("EXTRA_MESSAGE");
+
+        createUser();
         // after clicking the profile button, take to profile page
         profileBtn = (ImageButton) findViewById(R.id.profileButton);
         // shelf button, take to shelf page
@@ -210,8 +213,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intendLoadGenre = new Intent(MainActivity.this, GenreActivity.class);
                 intendLoadGenre.putExtra("gamesL", (Serializable) gamesList);
+
                 intendLoadGenre.putExtra("isLogged", (Serializable) userList);
                 intendLoadGenre.putExtra("EXTRA_MESSAGE", currUser);
+
                 MainActivity.this.startActivity(intendLoadGenre);
 
             }
