@@ -39,9 +39,13 @@ public class MainActivity extends AppCompatActivity {
     Button genreBtn;
     Button friendBtn;
     public Integer currIDCount = 1;
-    private List<users> userList = new ArrayList<>();
+    public Boolean isLogged;
+    public String currUser;
+
+
+    public List<users> userList = new ArrayList<>();
     public List<games> gamesList = new ArrayList<>();
-    private List<String> tempGameList = new ArrayList<>();
+    private List<users> tempFriendList = new ArrayList<>();
     public int generateID(){
         return this.currIDCount++;
     }
@@ -64,7 +68,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public users createUser(){
-        users newUser = new users(0 , "Jonnn", "Jon","abc123",  new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        users newUser = new users(0 , "Jonnn", "Jon","abc123", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        userList.add(newUser);
+        users newUser2 = new users(0 , "Jon", "Jon","abc", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        tempFriendList.add(newUser2);
+        newUser.setMyFriends(tempFriendList);
         return newUser;
     }
     public void setgame(Context context) {
@@ -82,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 String title = tokens[1];
                 String publisher = tokens[2];
                 if (title != "Name"){
-                    currList.add(new games(generateID(), title, publisher, 0.0, new ArrayList<>()));
+                    currList.add(new games(generateID(), title, publisher, 0.0, new ArrayList<>(),new ArrayList<>()));
                 }
             }
             System.out.println("curr "+currList.size());
@@ -107,9 +115,10 @@ public class MainActivity extends AppCompatActivity {
                 for (users user : userList) {
                     String line = String.format("%s,%s,%s\n", user.getuserName(), user.getfirstName(), user.getPassword(), user.getCurrentPlay(), user.getHavePlayed(),user.getMyFriends());
                     writer.write(line);
+                    writer.flush();
+                    writer.close();
                 }
-                writer.flush();
-                writer.close();
+
                 Toast.makeText(getApplicationContext(), "File saved at " + file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -122,6 +131,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setgame(getApplicationContext());
+        gamesList = (List<games>) getIntent().getSerializableExtra("gamesL");
+        userList = (List<users>) getIntent().getSerializableExtra("isLogged");
+        currUser = getIntent().getStringExtra("EXTRA_MESSAGE");
         // after clicking the profile button, take to profile page
         profileBtn = (ImageButton) findViewById(R.id.profileButton);
         // shelf button, take to shelf page
@@ -146,7 +158,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentLoadNewAdd = new Intent(MainActivity.this, LogActivity.class);
                 intentLoadNewAdd.putExtra("gamesL", (Serializable) gamesList);
-
+                intentLoadNewAdd.putExtra("isLogged", (Serializable) userList);
+                intentLoadNewAdd.putExtra("EXTRA_MESSAGE", currUser);
                 MainActivity.this.startActivity(intentLoadNewAdd);
             }
         });
@@ -155,6 +168,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentLoadNewActivity = new Intent(MainActivity.this, ProfileActivity.class);
                 intentLoadNewActivity.putExtra("gamesL", (Serializable) gamesList);
+                intentLoadNewActivity.putExtra("isLogged", (Serializable) userList);
+                intentLoadNewActivity.putExtra("EXTRA_MESSAGE", currUser);
                 MainActivity.this.startActivity(intentLoadNewActivity);
             }
         });
@@ -163,6 +178,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentLoadNewHome = new Intent(MainActivity.this, MainActivity.class);
                 intentLoadNewHome.putExtra("gamesL", (Serializable) gamesList);
+                intentLoadNewHome.putExtra("isLogged", (Serializable) userList);
+                intentLoadNewHome.putExtra("EXTRA_MESSAGE", currUser);
                 MainActivity.this.startActivity(intentLoadNewHome);
             }
         });
@@ -171,7 +188,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intendLoadShelfs = new Intent(MainActivity.this, ShelfActivity.class);
                 intendLoadShelfs.putExtra("gamesL", (Serializable) gamesList);
-
+                intendLoadShelfs.putExtra("isLogged", (Serializable) userList);
+                intendLoadShelfs.putExtra("EXTRA_MESSAGE", currUser);
                 MainActivity.this.startActivity(intendLoadShelfs);
 
             }
@@ -181,6 +199,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intendLoadGames = new Intent(MainActivity.this, GamesActivity.class);
                 intendLoadGames.putExtra("gamesL", (Serializable) gamesList);
+                intendLoadGames.putExtra("isLogged", (Serializable) userList);
+                intendLoadGames.putExtra("EXTRA_MESSAGE", currUser);
                 MainActivity.this.startActivity(intendLoadGames);
             }
         });
@@ -190,7 +210,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intendLoadGenre = new Intent(MainActivity.this, GenreActivity.class);
                 intendLoadGenre.putExtra("gamesL", (Serializable) gamesList);
-
+                intendLoadGenre.putExtra("isLogged", (Serializable) userList);
+                intendLoadGenre.putExtra("EXTRA_MESSAGE", currUser);
                 MainActivity.this.startActivity(intendLoadGenre);
 
             }
@@ -200,9 +221,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intendLoadFriend = new Intent(MainActivity.this, FriendsActivity.class);
                 intendLoadFriend.putExtra("gamesL", (Serializable) gamesList);
-//                intentLoadNewAdd.putExtra("isLogged", (Serializable) gamesList);
+                intendLoadFriend.putExtra("isLogged", (Serializable) userList);
+                intendLoadFriend.putExtra("EXTRA_MESSAGE", currUser);
                 MainActivity.this.startActivity(intendLoadFriend);
-
             }
         });
 

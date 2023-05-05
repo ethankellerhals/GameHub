@@ -23,7 +23,13 @@ public class FriendsActivity extends AppCompatActivity {
     Button shelfBtn;
     Button gamesBtn;
     Button genreBtn;
+    public String currUser;
+
+
+    public List<users> userList = new ArrayList<>();
     public List<games> gamesList = new ArrayList<>();
+    public List<users> tempFriendList = new ArrayList<>();
+    public List<games> tempGameList = new ArrayList<>();;
 
 
     @Override
@@ -31,6 +37,8 @@ public class FriendsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friends);
         gamesList = (List<games>) getIntent().getSerializableExtra("gamesL");
+        userList = (List<users>) getIntent().getSerializableExtra("isLogged");
+        currUser = getIntent().getStringExtra("EXTRA_MESSAGE");
         // after clicking the profile button, take to profile page
         profileBtn = (ImageButton) findViewById(R.id.profileButton);
         // shelf button, take to shelf page
@@ -50,6 +58,8 @@ public class FriendsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentLoadNewAdd = new Intent(FriendsActivity.this, LogActivity.class);
                 intentLoadNewAdd.putExtra("gamesL", (Serializable) gamesList);
+                intentLoadNewAdd.putExtra("isLogged", (Serializable) userList);
+                intentLoadNewAdd.putExtra("EXTRA_MESSAGE", currUser);
                 FriendsActivity.this.startActivity(intentLoadNewAdd);
             }
         });
@@ -58,6 +68,8 @@ public class FriendsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentLoadNewActivity = new Intent(FriendsActivity.this, ProfileActivity.class);
                 intentLoadNewActivity.putExtra("gamesL", (Serializable) gamesList);
+                intentLoadNewActivity.putExtra("isLogged", (Serializable) userList);
+                intentLoadNewActivity.putExtra("EXTRA_MESSAGE", currUser);
                 FriendsActivity.this.startActivity(intentLoadNewActivity);
             }
         });
@@ -66,6 +78,8 @@ public class FriendsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentLoadNewHome = new Intent(FriendsActivity.this, MainActivity.class);
                 intentLoadNewHome.putExtra("gamesL", (Serializable) gamesList);
+                intentLoadNewHome.putExtra("isLogged", (Serializable) userList);
+                intentLoadNewHome.putExtra("EXTRA_MESSAGE", currUser);
                 FriendsActivity.this.startActivity(intentLoadNewHome);
             }
         });
@@ -74,6 +88,8 @@ public class FriendsActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intendLoadShelfs = new Intent(FriendsActivity.this, ShelfActivity.class);
                 intendLoadShelfs.putExtra("gamesL", (Serializable) gamesList);
+                intendLoadShelfs.putExtra("isLogged", (Serializable) userList);
+                intendLoadShelfs.putExtra("EXTRA_MESSAGE", currUser);
 
                 FriendsActivity.this.startActivity(intendLoadShelfs);
 
@@ -84,6 +100,8 @@ public class FriendsActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intendLoadGames = new Intent(FriendsActivity.this, GamesActivity.class);
                 intendLoadGames.putExtra("gamesL", (Serializable) gamesList);
+                intendLoadGames.putExtra("isLogged", (Serializable) userList);
+                intendLoadGames.putExtra("EXTRA_MESSAGE", currUser);
                 FriendsActivity.this.startActivity(intendLoadGames);
             }
         });
@@ -93,6 +111,8 @@ public class FriendsActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intendLoadGenre = new Intent(FriendsActivity.this, GenreActivity.class);
                 intendLoadGenre.putExtra("gamesL", (Serializable) gamesList);
+                intendLoadGenre.putExtra("isLogged", (Serializable) userList);
+                intendLoadGenre.putExtra("EXTRA_MESSAGE", currUser);
 
                 FriendsActivity.this.startActivity(intendLoadGenre);
 
