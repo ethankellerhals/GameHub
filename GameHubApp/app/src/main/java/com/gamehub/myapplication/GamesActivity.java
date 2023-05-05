@@ -1,11 +1,16 @@
 package com.gamehub.myapplication;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RectShape;
 import android.os.AsyncTask;
 import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -43,67 +48,103 @@ public class GamesActivity extends AppCompatActivity {
     public void rateGame(){
 
     }
-//    public Boolean removePlayed(){
-//        for(games game:gamesList){
-//            if (game.getTitle() == )
-//        }
-//    }
+
+    // referance
+    // https://developer.android.com/reference/android/widget/TableLayout
+    // https://developer.android.com/reference/android/widget/TableRow
+    // https://developer.android.com/reference/android/view/View
+    // https://developer.android.com/reference/android/graphics/drawable/ShapeDrawable
+
     public void setgame() {
-
-
         TableLayout tableLayout = findViewById(R.id.allGamesTable);
         ScrollView scrollView = findViewById(R.id.tableScroll);
-//
         Switch swtch = findViewById(R.id.switch1);
         CardView cardV = findViewById(R.id.gameCard);
         CardView cardView = findViewById(R.id.gameCard);
         TextView titl = findViewById(R.id.titleTextView);
         TextView publ = findViewById(R.id.publisherTextView);
         TextView ratl = findViewById(R.id.ratingTextView);
-        if(!gamesList.isEmpty()){
-            for (games tee : gamesList) {
+
+        // padding and margins for the table
+        int tablePadding = 16;
+        tableLayout.setPadding(tablePadding, tablePadding, tablePadding, tablePadding);
+        TableLayout.LayoutParams tableParams = new TableLayout.LayoutParams(
+                TableLayout.LayoutParams.MATCH_PARENT,
+                TableLayout.LayoutParams.WRAP_CONTENT
+        );
+        int tableMargin = 8;
+        tableParams.setMargins(tableMargin, tableMargin, tableMargin, tableMargin);
+        tableLayout.setLayoutParams(tableParams);
+
+        // background color
+        tableLayout.setBackgroundColor(Color.WHITE);
+
+        // divider drawable
+        ShapeDrawable dividerDrawable = new ShapeDrawable(new RectShape());
+        int dividerHeight = 2;
+        dividerDrawable.setIntrinsicHeight(dividerHeight);
+        dividerDrawable.getPaint().setColor(Color.LTGRAY);
+
+        // divider for the table
+        tableLayout.setDividerDrawable(dividerDrawable);
+        tableLayout.setShowDividers(TableLayout.SHOW_DIVIDER_MIDDLE);
+
+        if (!gamesList.isEmpty()) {
+            for (int i = 0; i < gamesList.size(); i++) {
+                final games tee = gamesList.get(i);
+                // new row
                 TableRow tableRow = new TableRow(this);
+                int rowPadding = 8;
+                tableRow.setPadding(rowPadding, rowPadding, rowPadding, rowPadding);
+                TableRow.LayoutParams rowParams = new TableRow.LayoutParams(
+                        TableRow.LayoutParams.MATCH_PARENT,
+                        TableRow.LayoutParams.WRAP_CONTENT
+                );
+                int rowMargin = 4;
+                rowParams.setMargins(rowMargin, rowMargin, rowMargin, rowMargin);
+                tableRow.setLayoutParams(rowParams);
 
-                cardView.setLayoutParams(cardV.getLayoutParams());
-                cardView.setBottom(cardView.getBottom());
-                cardView.setId(cardView.getId());
-                cardView.setVisibility(cardView.getVisibility());
+                // every other row
+                if (i % 2 == 0) {
+                    tableRow.setBackgroundColor(Color.LTGRAY);
+                } else {
+                    tableRow.setBackgroundColor(Color.WHITE);
+                }
+
+                // populate each cell
                 TextView nameTextView = new TextView(this);
-                TextView pubTextView = new TextView(this);
-                TextView ratTextView = new TextView(this);
-
-                nameTextView.setText(tee.getTitle() );
-                pubTextView.setText(tee.getPublisher());
-                ratTextView.setText(String.valueOf(tee.getRating()));
-                titl.setText(tee.getTitle());
-                ratl.setText(String.valueOf(tee.getRating()));
-                publ.setText(tee.getPublisher());
-
+                nameTextView.setText(tee.getTitle());
+                nameTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+                nameTextView.setTypeface(Typeface.DEFAULT_BOLD);
                 tableRow.addView(nameTextView);
+
+                TextView pubTextView = new TextView(this);
+                pubTextView.setText(tee.getPublisher());
+                pubTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
                 tableRow.addView(pubTextView);
+
+                TextView ratTextView = new TextView(this);
+                ratTextView.setText(String.valueOf(tee.getRating()));
+                ratTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
                 tableRow.addView(ratTextView);
+                // add the row
                 tableLayout.addView(tableRow);
+
+                // click on game
                 tableRow.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v)
-                    {
+                    public void onClick(View v) {
                         cardView.setVisibility(View.VISIBLE);
                         tableLayout.setVisibility(View.GONE);
-//                        if(playSw.isChecked()){
-//                            for(users user : userList){
-//                                if(user.getuserName() ==)
-//                            }
-//                        }
+
+                        titl.setText(tee.getTitle());
+                        ratl.setText(String.valueOf(tee.getRating()));
+                        publ.setText(tee.getPublisher());
                     }
                 });
             }
         }
-        else{
-            System.out.println("Empty game list ");
-            System.out.println("Number of games: " + gamesList.size());
-        }
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
