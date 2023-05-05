@@ -47,6 +47,7 @@ public class users implements Serializable {
     public void setMyFriends(List<users> myFriends){
         this.myFriends = myFriends;
     }
+
     public List<games> getCurrentPlay(){
         return this.currentPlay;
     }

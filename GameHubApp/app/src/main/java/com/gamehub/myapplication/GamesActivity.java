@@ -36,11 +36,14 @@ public class GamesActivity extends AppCompatActivity {
     Button shelfBtn;
     Button genreBtn;
     Button friendBtn;
+
     Switch playSw;
+    public String currUser;
 
     private List<users> userList = new ArrayList<>();
     public List<games> gamesList = new ArrayList<>();
-    private List<String> tempGameList = new ArrayList<>();
+    public List<users> tempFriendList = new ArrayList<>();
+    public List<games> tempGameList = new ArrayList<>();
     public Integer currIDCount = 1;
     public int generateID(){
         return this.currIDCount++;
@@ -64,6 +67,7 @@ public class GamesActivity extends AppCompatActivity {
         TextView titl = findViewById(R.id.titleTextView);
         TextView publ = findViewById(R.id.publisherTextView);
         TextView ratl = findViewById(R.id.ratingTextView);
+
 
         // padding and margins for the table
         int tablePadding = 16;
@@ -149,8 +153,10 @@ public class GamesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_games);
         gamesList = (List<games>) getIntent().getSerializableExtra("gamesL");
+        userList = (List<users>) getIntent().getSerializableExtra("isLogged");
+        currUser = getIntent().getStringExtra("EXTRA_MESSAGE");
+        setContentView(R.layout.activity_games);
 
         setgame();
 //        TableLayout tableLayout = findViewById(R.id.allGamesTable);
@@ -181,6 +187,8 @@ public class GamesActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentLoadNewAdd = new Intent(GamesActivity.this, LogActivity.class);
                 intentLoadNewAdd.putExtra("gamesL",(Serializable) gamesList);
+                intentLoadNewAdd.putExtra("isLogged", (Serializable) userList);
+                intentLoadNewAdd.putExtra("EXTRA_MESSAGE", currUser);
                 GamesActivity.this.startActivity(intentLoadNewAdd);
             }
         });
@@ -189,6 +197,8 @@ public class GamesActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentLoadNewActivity = new Intent(GamesActivity.this, ProfileActivity.class);
                 intentLoadNewActivity.putExtra("gamesL",(Serializable) gamesList);
+                intentLoadNewActivity.putExtra("isLogged", (Serializable) userList);
+                intentLoadNewActivity.putExtra("EXTRA_MESSAGE", currUser);
                 GamesActivity.this.startActivity(intentLoadNewActivity);
             }
         });
@@ -197,6 +207,8 @@ public class GamesActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentLoadNewHome = new Intent(GamesActivity.this, MainActivity.class);
                 intentLoadNewHome.putExtra("gamesL",(Serializable) gamesList);
+                intentLoadNewHome.putExtra("isLogged", (Serializable) userList);
+                intentLoadNewHome.putExtra("EXTRA_MESSAGE", currUser);
                 GamesActivity.this.startActivity(intentLoadNewHome);
             }
         });
@@ -205,6 +217,8 @@ public class GamesActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intendLoadShelfs = new Intent(GamesActivity.this, ShelfActivity.class);
                 intendLoadShelfs.putExtra("gamesL",(Serializable) gamesList);
+                intendLoadShelfs.putExtra("isLogged", (Serializable) userList);
+                intendLoadShelfs.putExtra("EXTRA_MESSAGE", currUser);
                 GamesActivity.this.startActivity(intendLoadShelfs);
 
             }
@@ -214,6 +228,8 @@ public class GamesActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intendLoadGenre = new Intent(GamesActivity.this, GenreActivity.class);
                 intendLoadGenre.putExtra("gamesL",(Serializable) gamesList);
+                intendLoadGenre.putExtra("isLogged", (Serializable) userList);
+                intendLoadGenre.putExtra("EXTRA_MESSAGE", currUser);
                 GamesActivity.this.startActivity(intendLoadGenre);
 
             }
@@ -223,6 +239,8 @@ public class GamesActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intendLoadFriend = new Intent(GamesActivity.this, FriendsActivity.class);
                 intendLoadFriend.putExtra("gamesL",(Serializable) gamesList);
+                intendLoadFriend.putExtra("isLogged", (Serializable) userList);
+                intendLoadFriend.putExtra("EXTRA_MESSAGE", currUser);
                 GamesActivity.this.startActivity(intendLoadFriend);
 
             }

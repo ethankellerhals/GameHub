@@ -35,13 +35,17 @@ public class SignInActivity extends AppCompatActivity {
     EditText userNameText;
     EditText passWordText;
     public Boolean isLogged;
+    public String currUser;
     private List<users> userList = new ArrayList<>();
     public List<games> gamesList = new ArrayList<>();
-    private List<String> tempGameList = new ArrayList<>();
+    public List<users> tempFriendList = new ArrayList<>();
+    public List<games> tempGameList = new ArrayList<>();
+
 
     public SignInActivity(){
         this.userList = userList;
         this.isLogged = false;
+        this.currUser = currUser;
 
     }
     public void setUserList(List<users> userList){
@@ -54,8 +58,11 @@ public class SignInActivity extends AppCompatActivity {
 
 
     public void createUser(){
-        users newUser = new users(0 , "Jonnn", "Jon","abc123",  new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        users newUser = new users(0 , "Jonnn", "Jon","abc123", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
         userList.add(newUser);
+        users newUser2 = new users(0 , "Jon", "Jon","abc", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        tempFriendList.add(newUser2);
+        newUser.setMyFriends(tempFriendList);
     }
 
     @Override
@@ -96,8 +103,8 @@ public class SignInActivity extends AppCompatActivity {
                             Intent intent = new Intent(SignInActivity.this, MainActivity.class);
                             intent.putExtra("EXTRA_MESSAGE", use);
                             startActivity(intent);
-                            Intent intentLoadNewAdd = new Intent(SignInActivity.this, MainActivity.class);
-                            SignInActivity.this.startActivity(intentLoadNewAdd);
+//                            Intent intentLoadNewAdd = new Intent(SignInActivity.this, MainActivity.class);
+//                            SignInActivity.this.startActivity(intentLoadNewAdd);
                             return;
                         }
                     }

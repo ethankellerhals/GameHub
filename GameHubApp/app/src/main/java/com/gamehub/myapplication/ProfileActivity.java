@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -27,10 +28,22 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageView profilePictureImageView;
 
     private TextView usernameTextView;
+    public String currUser;
+
+    public List<users> tempFriendList = new ArrayList<>();
+    public List<games> tempGameList = new ArrayList<>();
+
+    public List<users> userList = new ArrayList<>();
+    public List<games> gamesList = new ArrayList<>();
+
     private TextView bioTextView;
 
     public users createUser(){
         users newUser = new users(0 , "Jonnn", "Jon","abc123", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        userList.add(newUser);
+        users newUser2 = new users(0 , "Jon", "Jon","abc", new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        tempFriendList.add(newUser2);
+        newUser.setMyFriends(tempFriendList);
         return newUser;
     }
 
