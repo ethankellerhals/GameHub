@@ -1,6 +1,7 @@
 # GameHub
 
 **CSCI 4448 Project by Ethan Kellerhals, Jon Goins, and Adrian Ornelas Ruvalcaba**
+
 **Sources in project 7 pdf***
 ** Live Demo titled Demo***
 
