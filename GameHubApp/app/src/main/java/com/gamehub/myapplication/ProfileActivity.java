@@ -25,7 +25,6 @@ public class ProfileActivity extends AppCompatActivity {
     Button genreBtn;
     Button friendBtn;
     private ImageView profilePictureImageView;
-
     private TextView usernameTextView;
     private TextView bioTextView;
 
@@ -43,15 +42,14 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         profilePictureImageView = findViewById(R.id.profilePicture);
-        profilePictureImageView.setImageResource(R.drawable.default_profilepicture);
         usernameTextView = findViewById(R.id.username);
         //bioTextView = findViewById(R.id.bio);
 
         users newU = createUser();
 
-        //String profilePicturePath = loadProfilePicturePathFromStorage();
-        //itmap profilePictureBitmap = BitmapFactory.decodeFile(profilePicturePath);
-        //profilePictureImageView.setImageBitmap(profilePictureBitmap);
+        String profilePicturePath = loadProfilePicturePathFromStorage();
+        Bitmap profilePictureBitmap = BitmapFactory.decodeFile(profilePicturePath);
+        profilePictureImageView.setImageBitmap(profilePictureBitmap);
         String username = loadUsernameFromStorage();
         usernameTextView.setText(newU.getuserName());
 //        String bio = loadBioFromStorage();
@@ -82,65 +80,65 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivityForResult(intent, EDIT_PROFILE_REQUEST_CODE);
 
 
-//                // shelf button, take to shelf page
-//                shelfBtn = findViewById(R.id.shelfButton);
-//                // game button, take to game page
-//                gamesBtn = findViewById(R.id.gameButton);
-//                // genre button, take to genre page
-//                genreBtn = findViewById(R.id.genreButton);
-//                // friend button, take to friend page
-//                friendBtn = findViewById(R.id.friendsButton);
-//                // log button, take to log page
-//                logBtn = (ImageButton) findViewById(R.id.addButton);
-//                // home button, take to home page
-//                homeBtn = (ImageButton) findViewById(R.id.homeButton);
-//                logBtn.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intentLoadNewAdd = new Intent(ProfileActivity.this, LogActivity.class);
-//                        ProfileActivity.this.startActivity(intentLoadNewAdd);
-//                    }
-//                });
-//                homeBtn.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        Intent intentLoadNewHome = new Intent(ProfileActivity.this, MainActivity.class);
-//                        ProfileActivity.this.startActivity(intentLoadNewHome);
-//                    }
-//                });
-//                shelfBtn.setOnClickListener(new View.OnClickListener(){
-//                    @Override
-//                    public void onClick(View v){
-//                        Intent intendLoadShelfs = new Intent(ProfileActivity.this, ShelfActivity.class);
-//                        ProfileActivity.this.startActivity(intendLoadShelfs);
-//
-//                    }
-//                });
-//                gamesBtn.setOnClickListener(new View.OnClickListener(){
-//                    @Override
-//                    public void onClick(View v){
-//                        Intent intendLoadGames = new Intent(ProfileActivity.this, GamesActivity.class);
-//                        ProfileActivity.this.startActivity(intendLoadGames);
-//
-//                    }
-//                });
-//                genreBtn.setOnClickListener(new View.OnClickListener(){
-//                    @Override
-//                    public void onClick(View v){
-//                        Intent intendLoadGenre = new Intent(ProfileActivity.this, GenreActivity.class);
-//                        ProfileActivity.this.startActivity(intendLoadGenre);
-//
-//                    }
-//                });
-//                friendBtn.setOnClickListener(new View.OnClickListener(){
-//                    @Override
-//                    public void onClick(View v){
-//                        Intent intendLoadFriend = new Intent(ProfileActivity.this, FriendsActivity.class);
-//                        ProfileActivity.this.startActivity(intendLoadFriend);
-//
-//                    }
-//
-//                });
+                // shelf button, take to shelf page
+                shelfBtn = findViewById(R.id.shelfButton);
+                // game button, take to game page
+                gamesBtn = findViewById(R.id.gameButton);
+                // genre button, take to genre page
+                genreBtn = findViewById(R.id.genreButton);
+                // friend button, take to friend page
+                friendBtn = findViewById(R.id.friendsButton);
+                // log button, take to log page
+                logBtn = (ImageButton) findViewById(R.id.addButton);
+                // home button, take to home page
+                homeBtn = (ImageButton) findViewById(R.id.homeButton);
+                logBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intentLoadNewAdd = new Intent(ProfileActivity.this, LogActivity.class);
+                        ProfileActivity.this.startActivity(intentLoadNewAdd);
+                    }
+                });
+                homeBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intentLoadNewHome = new Intent(ProfileActivity.this, MainActivity.class);
+                        ProfileActivity.this.startActivity(intentLoadNewHome);
+                    }
+                });
+                shelfBtn.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v){
+                        Intent intendLoadShelfs = new Intent(ProfileActivity.this, ShelfActivity.class);
+                        ProfileActivity.this.startActivity(intendLoadShelfs);
+
+                    }
+                });
+                gamesBtn.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v){
+                        Intent intendLoadGames = new Intent(ProfileActivity.this, GamesActivity.class);
+                        ProfileActivity.this.startActivity(intendLoadGames);
+
+                    }
+                });
+                genreBtn.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v){
+                        Intent intendLoadGenre = new Intent(ProfileActivity.this, GenreActivity.class);
+                        ProfileActivity.this.startActivity(intendLoadGenre);
+
+                    }
+                });
+                friendBtn.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v){
+                        Intent intendLoadFriend = new Intent(ProfileActivity.this, FriendsActivity.class);
+                        ProfileActivity.this.startActivity(intendLoadFriend);
+
+                    }
+
+                });
             }
         });
     }

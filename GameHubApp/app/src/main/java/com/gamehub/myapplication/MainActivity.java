@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     Button genreBtn;
     Button friendBtn;
     public Integer currIDCount = 1;
-    public List<users> userList = new ArrayList<>();
+    private List<users> userList = new ArrayList<>();
     public List<games> gamesList = new ArrayList<>();
     private List<String> tempGameList = new ArrayList<>();
     public int generateID(){
@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity {
 
     public users createUser(){
         users newUser = new users(0 , "Jonnn", "Jon","abc123",  new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
-        userList.add(newUser);
         return newUser;
     }
     public void setgame(Context context) {
@@ -123,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setgame(getApplicationContext());
-        createUser();
         // after clicking the profile button, take to profile page
         profileBtn = (ImageButton) findViewById(R.id.profileButton);
         // shelf button, take to shelf page
@@ -192,7 +190,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v){
                 Intent intendLoadGenre = new Intent(MainActivity.this, GenreActivity.class);
                 intendLoadGenre.putExtra("gamesL", (Serializable) gamesList);
-                intendLoadGenre.putExtra("userL", (Serializable) userList);
 
                 MainActivity.this.startActivity(intendLoadGenre);
 

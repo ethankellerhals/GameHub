@@ -8,9 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.SearchView;
 
 import java.sql.Array;
@@ -18,11 +15,6 @@ import java.util.List;
 import java.util.ArrayList;
 //import
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.support.v7.app.AlertDialog;
-import android.view.Gravity;
-import android.widget.TextView;
-
 
 public class GenreActivity extends AppCompatActivity {
 
@@ -36,27 +28,17 @@ public class GenreActivity extends AppCompatActivity {
     private SearchController searchController;
 
 
-    public List<games> gamesList = new ArrayList<>();
-    public List<users> userList = new ArrayList<>();
 
 
-
-    private ImageView gameCoverPopup;
-    private TextView popUpTittle;
-    private TextView popUpRating;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_genre);
-        gamesList = (List<games>) getIntent().getSerializableExtra("gamesL");
-        userList = (List<users>) getIntent().getSerializableExtra("userL");
 
-
-
-
-        searchController = new SearchController(gamesList, userList);
-        RecyclerView recyclerView = findViewById(R.id.search_results_recyclerview);
-
+        List<games> gamesList = new ArrayList<>();
+        List<users> usersList = new ArrayList<>();
+        searchController = new SearchController(gamesList, usersList);
+//        RecyclerView recyclerView = findViewById(R.id.search_results_recyclerview);
         // after clicking the profile button, take to profile page
         profileBtn = (ImageButton) findViewById(R.id.profileButton);
         // shelf button, take to shelf page
@@ -72,55 +54,20 @@ public class GenreActivity extends AppCompatActivity {
 
         searchBar = findViewById(R.id.searchBarSearchView);
         List<SearchResult> dummyResults = new ArrayList<>();
+        dummyResults.add(new SearchResult("Ass", ResultType.GAME));
+        dummyResults.add(new SearchResult("money", ResultType.USER));
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        SearchResultsAdapter adapter = new SearchResultsAdapter(dummyResults);
 
-        //dummyResults.add(new SearchResult("Ass", ResultType.GAME));
-        //dummyResults.add(new SearchResult("money", ResultType.USER));
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //SearchResultsAdapter adapter = new SearchResultsAdapter(dummyResults);
-
-        SearchResultsAdapter adapter = new SearchResultsAdapter(new ArrayList<>());
-        recyclerView.setAdapter(adapter);
-
+        //SearchResultsAdapter adapter = new SearchResultsAdapter(new ArrayList<>());
+//        recyclerView.setAdapter(adapter);
         searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 List<SearchResult> results = new ArrayList<>();
                 results.addAll(searchController.searchGames(query));
                 results.addAll(searchController.searchUsers(query));
-
-                adapter.setData(results);
-
-                if (!results.isEmpty()) {
-                    SearchResult firstResult = results.get(0);
-                    View popupView = LayoutInflater.from(GenreActivity.this).inflate(R.layout.popup_game, null);
-                    PopupWindow popupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                    popupWindow.showAtLocation(searchBar, Gravity.CENTER, 0, 0);
-
-                    gameCoverPopup = popupView.findViewById(R.id.game_cover_popup);
-                    popUpTittle = popupView.findViewById(R.id.popUpTittle);
-                    popUpRating = popupView.findViewById(R.id.popUpRating);
-
-                    // Show the PopupWindow
-//                    popupWindow.showAtLocation(onQueryTextSubmit, Gravity.CENTER, 0, 0);
-
-                    // Set the image and text of the views
-                    gameCoverPopup.setImageResource(R.drawable.fortnite);
-                    popUpTittle.setText("Fortnite");
-                    popUpRating.setText("4.2");
-
-                    // get a reference to the Button and set its OnClickListener
-                    Button closeButton = popupView.findViewById(R.id.back_game_button);
-                    closeButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            // close the popup window
-                            popupWindow.dismiss();
-                        }
-                    });
-                }
-
-
-
+//                adapter.setData(results);
                 Log.d("11", "1");
 //                SearchResultsAdapter adapter = new SearchResultsAdapter(results);
 //                recyclerView.setAdapter(adapter);
@@ -188,6 +135,5 @@ public class GenreActivity extends AppCompatActivity {
 
 
     }
-
 
 }

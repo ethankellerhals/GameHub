@@ -1,8 +1,7 @@
 package com.gamehub.myapplication;
-import java.io.Serializable;
 import java.util.List;
 
-public class users implements Serializable {
+public class users {
     private Integer userID;
     private String userName;
     private String firstName;
